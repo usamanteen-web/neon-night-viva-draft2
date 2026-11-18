@@ -59,9 +59,9 @@ const PLACES = [
   {id: 'pier', img: '08_pier-archway', dot: '#FF2E88', seats: 0,
     name: {th: 'ท่าเรือเอเชียทีค', en: 'Asiatique pier'},
     sub: {th: 'จุดขึ้นเรือ', en: 'Boarding point'},
-    items: {th: ['ซุ้มอุโมงค์เดินลอด 3.2×3.3 ม. ขอบนีออนชมพู ช่องเดินขอบนีออนฟ้า ผนังด้านในเป็นระแนงไฟ', 'ป้ายกล่องไฟ NEON NIGHT บนหัวซุ้ม', 'ป้ายวงกลมนีออน "Neon Night 2027" และแผงป้ายเฉียงขอบนีออน สำหรับถ่ายรูป', 'กระถางกล่องเรืองแสง ต้นไม้ และแจกันดอกไม้ชมพู-ขาว', 'พรมดำขอบไฟ ไปถึงสะพานขึ้นเรือที่ราวติดไฟนีออนฟ้า'],
-      en: ['3.2 × 3.3 m walk-through neon tunnel: pink outline, cyan doorway, glowing slats inside', 'NEON NIGHT light-box sign on top', 'Round "Neon Night 2027" neon sign and an angled neon-edged panel for photos', 'Glowing cube planters, plants and pink-white flowers', 'Black carpet with lit edges to the gangway, cyan neon on its rails']},
-    cam: {p: [-9.8, 2.6, 21.5], t: [-9.8, 1.8, 9.6]}, pin: [-9.8, 4.2, 10.0]},
+    items: {th: ['ซุ้มอุโมงค์เดินลอด 4.3×3.75 ม. สีกรมท่า เส้นนีออนชมพู ขาว ฟ้า ตัวอักษรนีออน NEON NIGHT บนหัวซุ้ม', 'ผนังด้านในอุโมงค์เป็นเส้นไฟแนวเฉียง', 'ซ้าย: แผงป้ายหลังคาลาด ขอบนีออนฟ้า ชื่อเรือสีทอง พร้อมกล่องโครงไฟและต้นเฟิร์น', 'ขวา: ฉากระแนงขาวเรืองแสง ป้ายวงกลมนีออน "Neon Night 2027" Ø 2 ม. ดอกไม้ขาว-ชมพูช่อสูงสองข้าง', 'พรมกรมท่า ขอบไฟชมพู/ฟ้า เดินผ่านซุ้มถึงสะพานขึ้นเรือ'],
+      en: ['4.3 × 3.75 m navy walk-through tunnel, pink/white/cyan neon lines, NEON NIGHT neon letters on top', 'Diagonal light lines inside the tunnel', 'Left: sloped-roof panel with cyan neon edge and the boat name in gold, light-frame cubes and ferns', 'Right: glowing white slat screen, Ø 2 m round "Neon Night 2027" neon sign, tall white-pink flowers on both sides', 'Navy carpet with pink/cyan lit edges through the tunnel to the gangway']},
+    cam: {p: [-10.7, 2.1, 18.3], t: [-10.4, 2.4, 8.6]}, pin: [-9.8, 4.6, 9.3]},
   {id: 'roof', img: '03_rooftop-wide', dot: '#FF2E88', seats: 288,
     name: {th: 'ดาดฟ้า', en: 'Open-air rooftop'},
     sub: {th: 'ชั้นบนสุด เปิดโล่ง', en: 'Top deck, open sky'},
@@ -227,7 +227,7 @@ pl(WARM, 18, 12, -12, 6.0, 0); pl(WARM, 18, 12, 2, 6.0, 0);
 // bow photo wall
 pl(0xffd9a0, 30, 7, 20.2, 3.6, 0); pl(PINK, 10, 5, 18, 3.4, 2.6); pl(CYAN, 10, 5, 18, 3.4, -2.6);
 // pier
-pl(PINK, 22, 8, -9.8, 3.0, 12.0); pl(WARM, 26, 14, -15, 3.4, 9.0); pl(WARM, 26, 14, -3, 3.4, 9.0); pl(CYAN, 12, 6, -9.8, 1.4, 10.2); pl(0xc8a6ff, 10, 6, -13, 1.2, 11.5); pl(PINK, 8, 6, -6.6, 3.0, 9.6);
+pl(PINK, 5, 6, -9.8, 2.0, 11.5); pl(WARM, 6, 12, -15, 3.4, 12.0); pl(WARM, 6, 12, -3, 3.4, 12.0); pl(CYAN, 4, 4, -9.8, 1.2, 9.6); pl(0x8a3dff, 5, 4, -13.5, 0.6, 10.8); pl(0xb36bff, 5, 4, -6.0, 0.6, 9.6);
 
 /* materials */
 function canvasTex(w, h, draw, rep = 1) {
@@ -289,11 +289,15 @@ const MAT = {
   I_PanelRed: std({color: 0x2a0710, roughness: .6}), I_StageCarpet: std({color: 0x2a2a2e, roughness: .95}),
 };
 Object.assign(MAT, {
+  Neon_White: neon(0xf6f0ff, 0.9), Ring_White: neon(0xffe3f6, 1.8), Slat_Screen_White: neon(0xf1ecff, 0.7),
+  Planter_Glow_Blue: neon(0x2f6bff, 0.8), Planter_Glow_White: neon(0xa04dff, 0.8),
+  Plant_Fern: std({color: 0x3f8a3a, emissive: 0x16351a, emissiveIntensity: .6, roughness: .6}),
+  Carpet_Navy: std({color: 0x2a2f70, roughness: .55}), Pier_Wet: phys({color: 0x3a3a48, roughness: .08, metalness: .2, clearcoat: 1}),
   Lamp_pink: neon(0xff4fa8, 1.5), Lamp_violet: neon(0xb36bff, 1.6), Lamp_white: neon(0xf2e8ff, 1.0), Lamp_cyan: neon(0x38e6ff, 1.4), Lamp_coral: neon(0xff7a6b, 1.4),
   Lamp_Base: std({color: 0xeeeeea, roughness: .4}),
-  Portal_Navy: phys({color: 0x161a3e, roughness: .45, clearcoat: .4}), Portal_Slat: neon(0xd9ccff, 0.9),
+  Portal_Navy: std({color: 0x0b0d2c, roughness: .7, envMapIntensity: 0}), Portal_Slat: neon(0x7fe8ff, 1.2),
   Plant_Green: std({color: 0x3f9a58, emissive: 0x1c4d29, emissiveIntensity: .6, roughness: .7}),
-  Planter_Glow: neon(0xc8a6ff, 1.0), Planter_Frame: neon(0xf4ecff, 1.3),
+  Planter_Glow: neon(0x8a3dff, 0.8), Planter_Frame: neon(0xf4ecff, 1.3),
   Flower_Pink: std({color: 0xf2a8ca, emissive: 0x6a2c48, emissiveIntensity: .5, roughness: .6}), Flower_White: std({color: 0xf5f2f5, emissive: 0x4a4650, emissiveIntensity: .5, roughness: .6}),
   Sign_Disc: std({color: 0x120a26, roughness: .4}), Carpet_Black: std({map: TEX.carpet, roughness: .95}),
 });
