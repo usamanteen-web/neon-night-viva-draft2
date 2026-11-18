@@ -124,7 +124,6 @@ function renderText() {
   $('#zgrid').innerHTML = PLACES.map(p => `<button data-zone="${p.id}" class="${shown === p.id ? 'on' : ''}"><img loading="lazy" src="assets/img/${p.imgs[0]}-s.jpg" alt=""><span>${esc(p.name[lang])}</span></button>`).join('');
   $('#steps').innerHTML = STEPS[lang].map(([a, b]) => `<li><b>${esc(a)}</b><span>${esc(b)}</span></li>`).join('');
   renderPins(); renderFeat(); renderZone();
-  $('#cruise span').textContent = cruising ? T[lang].cruise_pause : T[lang].cruise_play;
   $('#split b').textContent = splitOn ? T[lang].split_back : T[lang].split_h;
 }
 function renderPins() {
@@ -168,7 +167,6 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { $('#lb').hidden = true; if (exploring) exitExplore(); } });
 $('#explore').onclick = () => enterExplore();
 $('#xexplore').onclick = () => exitExplore();
-$('#cruise').onclick = () => { setCruise(!cruising); };
 renderText();
 
 /* ------------------------------------------------------------------ 3D */
@@ -481,8 +479,7 @@ function applyVis(mode) {
 /* modes: cruise / explore / zone / split */
 let boatX = 0, boatTo = null;
 function setCruise(on) {
-  cruising = on; $('#cruise').setAttribute('aria-pressed', on ? 'true' : 'false');
-  $('#cruise span').textContent = on ? T[lang].cruise_pause : T[lang].cruise_play;
+  cruising = on;
   controls.autoRotate = on && !exploring;
   if (on) { current = null; splitOn = false; applyVis(''); renderText(); pierG.visible = false; }   // out on the river: the pier stays behind
 }
