@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<script>/* phones keep the previous page for now (Teen 19-11: desktop first) */(function(){var w=Math.min(screen.width||9999,innerWidth||9999);if((w<=760||matchMedia('(max-width:760px)').matches)&&!/[?&]desktop=1/.test(location.search))location.replace('m/'+location.search+location.hash);})();</script>
+<script>/* phones keep the previous page for now (Teen 19-11: desktop first) */(function(){var phone=matchMedia('(pointer:coarse)').matches&&Math.min(screen.width,screen.height)<=820;if(phone&&!/[?&]desktop=1/.test(location.search))location.replace('m/'+location.search+location.hash);})();</script>
 <meta name="robots" content="noindex,nofollow">
 <title>NEON NIGHT · VIVA Alangka Cruise | TIME SERVICE</title>
 <link rel="preload" href="assets/fonts/Monoton-Regular.ttf" as="font" type="font/ttf" crossorigin>
