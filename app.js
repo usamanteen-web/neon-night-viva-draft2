@@ -12,32 +12,42 @@ import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 /* ------------------------------------------------------------------ content (client-facing only) */
 const T = {
   th: {
-    nav_zones: 'โซนตกแต่ง', nav_tour: 'ชมเรือ 3D', nav_light: 'แสงและโคมไฟ', nav_contact: 'ติดต่อเรา', quote: 'ขอใบเสนอราคา',
-    lead: 'สัมผัสค่ำคืนที่ไม่มีวันลืม<br>บนแม่น้ำเจ้าพระยา กับ TIME SERVICE', explore: 'สำรวจงาน',
-    exp_label: 'THE EXPERIENCE', exp_h: 'ค่ำคืน<br>ที่น่าจดจำ',
-    exp_p: 'ดินเนอร์ล่องเรือธีมนีออนบน VIVA Alangka Cruise สำหรับแขก 300–400 ท่าน บรรยากาศ ความบันเทิง และช่วงเวลาที่น่าจดจำ',
-    learn: 'ดูรายละเอียด', zone_label: 'โซนตกแต่ง',
-    tour_h: 'ชมเรือแบบ 3D', loading: 'กำลังโหลดเรือ 3D', hint: 'ลากเพื่อหมุน · คลิกที่เรือแล้วใช้ล้อเมาส์เพื่อซูม',
-    split: 'แยกชั้น', all: 'ทั้งลำ',
-    light_h: 'โคมไฟบนทุกโต๊ะ และไฟบีม',
-    light_p: 'ทุกโต๊ะมีโคมไฟเรืองแสง 1 ดวง ชาร์จแบต เปลี่ยนสีได้ ไม่ต้องเดินสายไฟ สลับ 3 แบบทั่วทั้งเรือ ห้องอาหารชั้น 2 มีไฟบีมมูฟวิ่งเฮด 6 ตัว ยิงลำแสงชมพูและฟ้าขึ้นฝ้า',
-    lamp1: 'ก้อนกลมซ้อน · บล็อกบิด', lamp2: 'โคมแมงกะพรุน', lamp3: 'วางจริงบนโต๊ะดาดฟ้า', beam: 'ไฟบีมห้องอาหารชั้น 2',
+    nav_home: 'ภาพรวม', nav_zones: 'โซน', nav_light: 'แสงและโคมไฟ', nav_journey: 'เส้นทางแขก', contact_btn: 'ติดต่อเรา',
+    eyebrow: 'ดินเนอร์ล่องเรือ — เจ้าพระยา — พ.ค. 2570',
+    hero_sub: 'ดินเนอร์ล่องเรือธีมนีออน บนเรือ VIVA Alangka Cruise แม่น้ำเจ้าพระยา',
+    cta_explore: 'สำรวจเรือ 3D', cruise_pause: 'หยุดล่องเรือ', cruise_play: 'ล่องเรือต่อ', done: 'เสร็จ',
+    loading: 'กำลังโหลดเรือ 3D', hint: 'ลากเพื่อหมุน · กดสำรวจเพื่อซูม',
+    st_seats: 'ที่นั่งสูงสุด', st_zones: 'โซนตกแต่ง', st_lamps: 'โคมไฟบนโต๊ะ',
+    split_h: 'แยกชั้นดูง่าย', split_p: 'ยกแต่ละชั้นแยกกัน ไม่ซ้อนทับ', split_back: 'รวมชั้นกลับ',
+    more: 'ดูรายละเอียด', see3d: 'ดูโซนนี้ใน 3D', k_zone: 'ZONE',
+    lamps_h: 'โคมไฟบนทุกโต๊ะ', lamps_p: 'ทุกโต๊ะมีโคมไฟเรืองแสง 1 ดวง ชาร์จแบต เปลี่ยนสีได้ ไม่ต้องเดินสายไฟ สลับ 3 แบบทั่วทั้งเรือ',
+    lamp1_h: 'ก้อนกลมซ้อน · บล็อกบิด', lamp1_p: 'ไล่สีชมพู ม่วง ฟ้า เรืองแสงทั้งตัว',
+    lamp2_h: 'โคมแมงกะพรุน', lamp2_p: 'โดมเรืองแสงกับหนวดใส บนฐานอะคริลิก',
+    lamp3_h: 'วางจริงบนโต๊ะดาดฟ้า (3D)', lamp3_p: 'ทั้ง 3 แบบสลับกันทีละโต๊ะ',
     lamp_note: 'ภาพโคมเป็นภาพตัวอย่างสินค้า รุ่นและสีจริงยืนยันอีกครั้งก่อนสั่ง',
+    beam_h: 'ไฟบีมในห้องอาหารชั้น 2', beam_p: 'ไฟมูฟวิ่งเฮด 6 ตัว วางพื้นหน้าเวที กลางห้อง และท้ายห้อง ยิงลำแสงชมพูและฟ้าขึ้นฝ้าและผนัง ขยับช้าตามเพลง ไม่ยิงเข้าตาแขก และไม่แขวนจากฝ้า',
+    sw_pink: 'เส้นนีออนหลัก ราวดาดฟ้าและขอบเรือ', sw_cyan: 'ขอบดาดฟ้า ขอบชั้น 1 และทางเดินพรม',
+    sw_violet: 'กรอบจอ LED และไฟในห้อง', sw_gold: 'ผนังถ่ายรูปชิมเมอร์ทอง และไฟทองเดิมของเรือ',
     jr_h: 'เส้นทางของแขก', note: 'ภาพทั้งหมดเป็นภาพจำลองแนวคิด รายละเอียดจริงอาจปรับตามหน้างาน',
     seats: n => `${n} ที่นั่ง`, deck_roof: 'ดาดฟ้า', deck_l2: 'ชั้น 2', deck_l1: 'ชั้น 1',
   },
   en: {
-    nav_zones: 'Our zones', nav_tour: '3D tour', nav_light: 'Lighting', nav_contact: 'Contact', quote: 'GET A QUOTE',
-    lead: 'Experience an unforgettable night<br>on the Chao Phraya River with Time Service.', explore: 'EXPLORE EVENT',
-    exp_label: 'THE EXPERIENCE', exp_h: 'A Night to<br>Remember',
-    exp_p: 'A neon dinner cruise on VIVA Alangka Cruise for 300–400 guests, combining great atmosphere, entertainment and unforgettable moments.',
-    learn: 'LEARN MORE', zone_label: 'OUR ZONE',
-    tour_h: 'The boat in 3D', loading: 'Loading the 3D boat', hint: 'Drag to rotate · click the boat, then scroll to zoom',
-    split: 'Decks apart', all: 'Whole boat',
-    light_h: 'A lamp on every table, and beams',
-    light_p: 'Every table gets one rechargeable glowing lamp that changes colour, no cables, three styles across the boat. The deck 2 room gets six moving-head beams in pink and cyan onto the ceiling.',
-    lamp1: 'Stacked pebbles · twisted blocks', lamp2: 'Jellyfish lamp', lamp3: 'On the rooftop tables', beam: 'Deck 2 beam lights',
+    nav_home: 'Overview', nav_zones: 'Zones', nav_light: 'Light & lamps', nav_journey: 'Guest journey', contact_btn: 'Contact us',
+    eyebrow: 'DINNER CRUISE — CHAO PHRAYA — MAY 2027',
+    hero_sub: 'A neon-themed dinner cruise on VIVA Alangka Cruise, Chao Phraya River, Bangkok',
+    cta_explore: 'Explore in 3D', cruise_pause: 'Pause the cruise', cruise_play: 'Resume the cruise', done: 'Done',
+    loading: 'Loading the 3D boat', hint: 'Drag to rotate · tap Explore to zoom',
+    st_seats: 'seats available', st_zones: 'decorated zones', st_lamps: 'table lamps',
+    split_h: 'Decks apart', split_p: 'Lift each deck apart, nothing overlaps', split_back: 'Put decks back',
+    more: 'See details', see3d: 'See this zone in 3D', k_zone: 'ZONE',
+    lamps_h: 'A lamp on every table', lamps_p: 'Every table gets one rechargeable glowing lamp that changes colour, no cables. Three styles alternate across the boat.',
+    lamp1_h: 'Stacked pebbles · twisted blocks', lamp1_p: 'Pink, violet and cyan, glowing all over',
+    lamp2_h: 'Jellyfish lamp', lamp2_p: 'Glowing dome with clear tentacles on an acrylic base',
+    lamp3_h: 'On the rooftop tables (3D)', lamp3_p: 'The three styles alternate table by table',
     lamp_note: 'Lamp photos are product samples; final model and colours confirmed before ordering.',
+    beam_h: 'Beam lights in the deck 2 room', beam_p: 'Six moving-head lights on the floor at the stage, mid-room and rear shoot pink and cyan beams onto the ceiling and walls, moving slowly with the music. Never into guests\u2019 eyes, nothing hung from the ceiling.',
+    sw_pink: 'Main neon lines on the rooftop rail and hull', sw_cyan: 'Rooftop edge, lower deck edge and the carpet path',
+    sw_violet: 'LED screen frames and room light', sw_gold: 'Gold shimmer photo wall and the boat\u2019s own gold lights',
     jr_h: 'Guest journey', note: 'All images are concept visuals. Final details may be adjusted on site.',
     seats: n => `${n} seats`, deck_roof: 'Rooftop', deck_l2: 'Deck 2', deck_l1: 'Deck 1',
   },
@@ -92,7 +102,7 @@ const PLACES = [
 const SPLIT = {l2: 7.5, roof: 15.5};                       // how far each deck lifts in the split view (m)
 const SPLIT_CAM = {p: [-30, 34, 50], t: [2, 6.5, 0]};
 const OVERVIEW = {p: [-40, 22, 44], t: [-1, 3, 0]};
-const CRUISE_CAM = innerWidth < 900 ? {p: [-30, 15, 44], t: [2, 3.0, 0]} : {p: [-46, 14, 38], t: [-2, 3.0, 0]};
+const CRUISE_CAM = innerWidth < 760 ? {p: [-50, 12, 52], t: [-3, 9.5, 0]} : {p: [-50, 15, 40], t: [-3, 1.0, 0]};   // phone: boat sits in the lower half, under the text
 const STEPS = {
   th: [['เช็คอิน', 'เอเชียทีค ระหว่างโกดัง 2 และ 3'], ['เดินลอดซุ้มนีออน', 'พรมขอบไฟ ไปถึงสะพานขึ้นเรือ'], ['ขึ้นเรือ เข้าที่นั่ง', 'ดาดฟ้า หัวเรือ หรือห้องแอร์ชั้น 1 และ 2'], ['ถ่ายรูปที่ผนังทอง', 'หัวเรือชั้น 2'], ['ล่องชมวิว', 'วัดอรุณ พระบรมมหาราชวัง สะพานพระราม 8']],
   en: [['Check in', 'Asiatique, between warehouses 2 and 3'], ['Walk through the neon tunnel', 'Lit carpet to the gangway'], ['Board and take your seat', 'Rooftop, bow deck or the deck 1 and 2 rooms'], ['Photo at the gold wall', 'Bow deck, deck 2'], ['Cruise the river', 'Wat Arun, the Grand Palace, Rama VIII Bridge']],
@@ -100,61 +110,67 @@ const STEPS = {
 
 /* ------------------------------------------------------------------ UI */
 let lang = localStorage.getItem('nn-lang') || 'th';
-let current = null, shown = 'roof', gi = 0, splitOn = false, exploring = false, cruising = true, zpage = 0;
+let current = null, shown = 'roof', gi = 0, splitOn = false, exploring = false, cruising = true;
 const $ = s => document.querySelector(s);
+const hero = $('.hero');
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
 const P = id => PLACES.find(x => x.id === id);
-const viewerEl = $('#viewer');
 
 function renderText() {
   document.documentElement.lang = lang;
-  document.querySelectorAll('[data-t]').forEach(el => { const v = T[lang][el.dataset.t]; if (typeof v === 'string') { if (el.dataset.html) el.innerHTML = v; else el.textContent = v; } });
+  document.querySelectorAll('[data-t]').forEach(el => { const v = T[lang][el.dataset.t]; if (typeof v === 'string') el.textContent = v; });
   document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+  $('#zsplit').classList.toggle('on', splitOn);
+  $('#zgrid').innerHTML = PLACES.map(p => `<button data-zone="${p.id}" class="${shown === p.id ? 'on' : ''}"><img loading="lazy" src="assets/img/${p.imgs[0]}-s.jpg" alt=""><span>${esc(p.name[lang])}</span></button>`).join('');
   $('#steps').innerHTML = STEPS[lang].map(([a, b]) => `<li><b>${esc(a)}</b><span>${esc(b)}</span></li>`).join('');
-  renderCards(); renderChips(); renderPins(); renderDetail();
-}
-function renderCards() {
-  const n = PLACES.length;
-  $('#cards').innerHTML = [0, 1, 2].map(i => { const p = PLACES[(zpage + i) % n];
-    return `<button class="card" data-go="${p.id}"><img src="assets/img/${p.imgs[0]}-s.jpg" alt="" loading="lazy"><span>${esc(p.name[lang])}</span></button>`; }).join('');
-  $('#pg').textContent = String(zpage + 1).padStart(2, '0'); $('#pgt').textContent = String(n).padStart(2, '0');
-}
-function renderChips() {
-  $('#chips').innerHTML = `<button class="chip ${!current && !splitOn ? 'on' : ''}" data-all="1">${esc(T[lang].all)}</button>`
-    + PLACES.map(p => `<button class="chip ${current === p.id ? 'on' : ''}" data-go="${p.id}">${esc(p.name[lang])}</button>`).join('')
-    + `<button class="chip ${splitOn ? 'on' : ''}" data-split="1">${esc(T[lang].split)}</button>`;
+  renderPins(); renderFeat(); renderZone();
+  $('#split b').textContent = splitOn ? T[lang].split_back : T[lang].split_h;
 }
 function renderPins() {
   const deckPins = [['roof', T[lang].deck_roof], ['l2', T[lang].deck_l2], ['l1', T[lang].deck_l1]];
-  $('#pins').innerHTML = PLACES.filter(p => p.pin).map(p => `<button class="pin" data-go="${p.id}">${esc(p.name[lang])}</button>`).join('')
-    + deckPins.map(([id, n]) => `<button class="pin deck" data-go="${id}" data-deck="1">${esc(n)}</button>`).join('');
+  $('#pins').innerHTML = PLACES.filter(p => p.pin).map(p => `<button class="pin" data-id="${p.id}">${esc(p.name[lang])}</button>`).join('')
+    + deckPins.map(([id, n]) => `<button class="pin deck" data-id="${id}" data-deck="1">${esc(n)}</button>`).join('');
 }
-function renderDetail() {
-  const p = P(current || shown);
+function renderFeat() {
+  const k = PLACES.findIndex(p => p.id === (current || shown)), p = PLACES[k];
+  $('#feat').innerHTML = `<button class="th zoomable" data-src="assets/img/${p.imgs[0]}.jpg" data-cap="${esc(p.name[lang])}"><img src="assets/img/${p.imgs[0]}-s.jpg" alt=""></button>
+    <div class="b"><div class="k"><span>${esc(T[lang].k_zone)}</span><span>${String(k + 1).padStart(2, '0')} / ${String(PLACES.length).padStart(2, '0')}</span></div>
+    <h3>${esc(p.name[lang])}</h3><p>${esc(p.items[lang][0])}</p>
+    <div class="row"><button class="more" data-more="1">${esc(T[lang].more)} →</button>
+      <span class="dash">${PLACES.map((_, i) => `<i class="${i === k ? 'on' : ''}"></i>`).join('')}</span>
+      <span class="arrows"><button data-step="-1" aria-label="Previous">←</button><button data-step="1" aria-label="Next">→</button></span></div></div>`;
+}
+function renderZone() {
+  const p = P(shown);
+  $('#zname').textContent = p.name[lang];
+  $('#zseats').textContent = p.seats ? T[lang].seats(p.seats) : p.sub[lang];
   gi = Math.min(gi, p.imgs.length - 1);
-  $('#detail').innerHTML = `<div><button class="ph zoomable" data-src="assets/img/${p.imgs[gi]}.jpg" data-cap="${esc(p.name[lang])}"><img src="assets/img/${p.imgs[gi]}-s.jpg" alt=""></button>
-    ${p.imgs.length > 1 ? `<div class="thumbs">${p.imgs.map((f, i) => `<button data-gi="${i}" class="${i === gi ? 'on' : ''}"><img src="assets/img/${f}-s.jpg" alt=""></button>`).join('')}</div>` : ''}</div>
-    <div><h3>${esc(p.name[lang])}</h3><span class="seats">${esc(p.seats ? T[lang].seats(p.seats) : p.sub[lang])}</span>
-    <ul style="--dot:${p.dot}">${p.items[lang].map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>`;
+  const g = $('#gmain'); g.dataset.src = `assets/img/${p.imgs[gi]}.jpg`; g.dataset.cap = p.name[lang]; g.querySelector('img').src = `assets/img/${p.imgs[gi]}.jpg`;
+  $('#gthumbs').innerHTML = p.imgs.length > 1 ? p.imgs.map((f, i) => `<button data-gi="${i}" class="${i === gi ? 'on' : ''}"><img src="assets/img/${f}-s.jpg" alt=""></button>`).join('') : '';
+  $('#zitems').style.setProperty('--dot', p.dot);
+  $('#zitems').innerHTML = p.items[lang].map(i => `<li>${esc(i)}</li>`).join('');
+  document.querySelectorAll('#zgrid button').forEach(b => b.classList.toggle('on', b.dataset.zone === shown));
 }
-function toTour() { $('#tour').scrollIntoView({behavior: 'smooth'}); }
 document.addEventListener('click', e => {
   const t = e.target;
   const lb = t.closest('.lang button'); if (lb) { lang = lb.dataset.lang; localStorage.setItem('nn-lang', lang); renderText(); return; }
-  if (t.closest('[data-split]')) { setSplit(!splitOn); return; }
-  if (t.closest('[data-all]')) { splitOn = false; current = null; enterExplore(); applyVis(''); flyTo(OVERVIEW); renderText(); return; }
-  const g = t.closest('[data-go]'); if (g) { if (g.classList.contains('card')) toTour(); go(g.dataset.go); return; }
-  if (t.closest('#zprev')) { zpage = (zpage - 1 + PLACES.length) % PLACES.length; renderCards(); return; }
-  if (t.closest('#znext')) { zpage = (zpage + 1) % PLACES.length; renderCards(); return; }
-  const th = t.closest('[data-gi]'); if (th) { gi = +th.dataset.gi; renderDetail(); return; }
+  if (t.closest('#zsplit') || t.closest('#split')) { setSplit(!splitOn); return; }
+  const r = t.closest('.pin'); if (r) { go(r.dataset.id); return; }
+  const st = t.closest('[data-step]'); if (st) { const k = PLACES.findIndex(p => p.id === (current || shown)); go(PLACES[(k + +st.dataset.step + PLACES.length) % PLACES.length].id); return; }
+  if (t.closest('[data-more]')) { $('#zone').scrollIntoView({behavior: 'smooth'}); return; }
+  const zg = t.closest('[data-zone]'); if (zg) { shown = zg.dataset.zone; gi = 0; renderZone(); return; }
+  const th = t.closest('[data-gi]'); if (th) { gi = +th.dataset.gi; renderZone(); return; }
+  if (t.closest('#z3d')) { window.scrollTo({top: 0, behavior: 'smooth'}); go(shown); return; }
   const z = t.closest('.zoomable'); if (z) { const box = $('#lb'); box.querySelector('img').src = z.dataset.src; box.querySelector('p').textContent = z.dataset.cap || ''; box.hidden = false; return; }
   if (t.closest('#lb')) $('#lb').hidden = true;
 });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') $('#lb').hidden = true; });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { $('#lb').hidden = true; if (exploring) exitExplore(); } });
+$('#explore').onclick = () => enterExplore();
+$('#xexplore').onclick = () => exitExplore();
 renderText();
 
 /* ------------------------------------------------------------------ 3D */
-const canvas = $('#c3d'), viewer = viewerEl;
+const canvas = $('#c3d'), viewer = $('#viewer');
 const renderer = new THREE.WebGLRenderer({canvas, antialias: true, powerPreference: 'high-performance'});
 let DPR = Math.min(window.devicePixelRatio || 1, 1.5);
 renderer.setPixelRatio(DPR);
@@ -178,7 +194,6 @@ controls.maxPolarAngle = Math.PI * 0.495;
 controls.screenSpacePanning = true; controls.zoomToCursor = true;
 controls.enableZoom = false; controls.enablePan = false;
 controls.autoRotate = true; controls.autoRotateSpeed = 0.35;
-viewer.addEventListener('pointerdown', () => enterExplore());
 
 /* sky dome */
 scene.add(new THREE.Mesh(new THREE.SphereGeometry(900, 48, 24), new THREE.ShaderMaterial({
@@ -438,7 +453,7 @@ new GLTFLoader().setDRACOLoader(draco).load('assets/boat.glb?v=202611181719', g 
     card.position.set(-17.8826 + 15.386 / 2, 0.45 + 4.119 / 2, 9.88); pierG.add(card);
   }
   $('#vload').classList.add('done');
-  window.__scene = scene; window.__READY__ = true;
+  window.__scene = scene;
 }, e => { if (e.total) { const p = Math.min(99, Math.round(e.loaded / e.total * 100)); /* gzip total can pass 100 */ $('#vpct').textContent = p + '%'; $('#vprog').value = p; } },
 () => { $('#vload div').textContent = 'The 3D view could not load.'; });
 
@@ -466,25 +481,30 @@ let boatX = 0, boatTo = null;
 function setCruise(on) {
   cruising = on;
   controls.autoRotate = on && !exploring;
-  if (on) { current = null; splitOn = false; applyVis(''); pierG.visible = false; }   // out on the river: the pier stays behind
+  if (on) { current = null; splitOn = false; applyVis(''); renderText(); pierG.visible = false; }   // out on the river: the pier stays behind
 }
 function enterExplore() {
-  if (exploring) return;
-  exploring = true; viewer.classList.add('live'); controls.enableZoom = true; controls.enablePan = true; controls.autoRotate = false;
-  if (!current && !splitOn) { setCruise(false); applyVis(''); dockBoat(); }
+  exploring = true; hero.classList.add('exploring'); controls.enableZoom = true; controls.enablePan = true; controls.autoRotate = false;
+  if (!current && !splitOn) { setCruise(false); applyVis(''); dockBoat(); flyTo(OVERVIEW); }
+}
+function exitExplore() {
+  exploring = false; hero.classList.remove('exploring'); controls.enableZoom = false; controls.enablePan = false;
+  current = null; splitOn = false; applyVis(''); renderText(); setCruise(true); flyTo(CRUISE_CAM, false, true);
 }
 function dockBoat() { boatTo = 0; }
 function go(id) {
   if (['roof', 'l2', 'l1'].includes(id) && splitOn) splitOn = false;
   current = id; shown = id; gi = 0;
-  enterExplore(); setCruise(false); controls.autoRotate = false; dockBoat();
-  const p = P(id) || P('roof'); applyVis(p.cut || ''); renderChips(); renderDetail(); flyTo(p.cam);
+  if (!exploring) { exploring = true; hero.classList.add('exploring'); controls.enableZoom = true; controls.enablePan = true; }
+  setCruise(false); controls.autoRotate = false; dockBoat();
+  const p = P(id); applyVis(p.cut || ''); renderText(); flyTo(p.cam);
 }
 function setSplit(on) {
   splitOn = on; current = null;
-  if (on) { enterExplore(); setCruise(false); controls.autoRotate = false; dockBoat(); applyVis('split'); flyTo(SPLIT_CAM); }
+  if (on) { if (!exploring) { exploring = true; hero.classList.add('exploring'); controls.enableZoom = true; controls.enablePan = true; }
+    setCruise(false); controls.autoRotate = false; dockBoat(); applyVis('split'); flyTo(SPLIT_CAM); }
   else { applyVis(''); flyTo(OVERVIEW); }
-  renderChips();
+  renderText();
 }
 
 /* camera moves */
@@ -497,8 +517,8 @@ function flyTo(cam, instant, rel) {
   tween = {p0: camera.position.clone(), t0: controls.target.clone(), p1, t1, s: performance.now(), d: 1500, rel};
 }
 $('#zin').onclick = () => dolly(0.75); $('#zout').onclick = () => dolly(1.33);
-$('#zreset').onclick = () => { splitOn = false; current = null; applyVis(''); renderChips(); flyTo(OVERVIEW); };
-$('#zfull').onclick = () => { if (document.fullscreenElement) document.exitFullscreen(); else viewer.requestFullscreen?.(); };
+$('#zreset').onclick = () => { if (splitOn) setSplit(false); current = null; applyVis(''); renderText(); flyTo(OVERVIEW); };
+$('#zfull').onclick = () => { if (document.fullscreenElement) document.exitFullscreen(); else hero.requestFullscreen?.(); };
 function dolly(k) { const d = camera.position.clone().sub(controls.target); const L = THREE.MathUtils.clamp(d.length() * k, controls.minDistance, controls.maxDistance); tween = {p0: camera.position.clone(), t0: controls.target.clone(), p1: controls.target.clone().add(d.setLength(L)), t1: controls.target.clone(), s: performance.now(), d: 450}; }
 controls.addEventListener('start', () => { tween = null; });
 
@@ -507,7 +527,7 @@ const pv = new THREE.Vector3();
 function placePins(w, h) {
   const placed = [];
   document.querySelectorAll('.pin').forEach(el => {
-    const id = el.dataset.go, isDeck = el.dataset.deck;
+    const id = el.dataset.id, isDeck = el.dataset.deck;
     if (isDeck) {
       const y = id === 'roof' ? 5.1 + lift.roof + 2.6 : id === 'l2' ? 2.75 + lift.l2 + 2.4 : 0.4 + 2.4;
       pv.set(6 + boat.position.x, y, 7.5);
@@ -527,7 +547,7 @@ function placePins(w, h) {
 function resize() {
   const w = viewer.clientWidth, h = viewer.clientHeight;
   renderer.setSize(w, h, false); composer.setSize(w, h); bloom.resolution.set(w / 3, h / 3);
-  camera.aspect = w / h; camera.fov = w / h < 1 ? 58 : 42; camera.updateProjectionMatrix();
+  camera.aspect = w / h; camera.fov = w / h < 1 ? 60 : 42; camera.updateProjectionMatrix();
 }
 new ResizeObserver(resize).observe(viewer); resize();
 let onScreen = true;
@@ -569,6 +589,6 @@ renderer.setAnimationLoop(() => {
   beams.forEach(b => { const k = b.userData.k; b.rotation.z = (b.userData.base || 0) + Math.sin(t * .45 + k * .8) * b.userData.sw * (k % 2 ? 1 : -1); b.rotation.x = Math.cos(t * .37 + k * 1.3) * b.userData.tw; });
   if (useBloom) composer.render(); else renderer.render(scene, camera);
   placePins(viewer.clientWidth, viewer.clientHeight);
+  window.__READY__ = $('#vload').classList.contains('done');
 });
 window.__go = go; window.__split = setSplit; window.__explore = enterExplore;
-window.__tour = toTour;
