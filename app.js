@@ -120,8 +120,7 @@ function renderText() {
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-t]').forEach(el => { const v = T[lang][el.dataset.t]; if (typeof v === 'string') el.textContent = v; });
   document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
-  $('#rail').innerHTML = PLACES.map(p => `<button data-id="${p.id}" class="${current === p.id ? 'on' : ''}" aria-label="${esc(p.name[lang])}"><svg viewBox="0 0 24 24">${ICON[p.id]}</svg><span>${esc(p.name[lang])}</span></button>`).join('')
-    + `<hr><button data-split="1" class="${splitOn ? 'on' : ''}" aria-label="${esc(T[lang].split_h)}"><svg viewBox="0 0 24 24">${ICON.split}</svg><span>${esc(splitOn ? T[lang].split_back : T[lang].split_h)}</span></button>`;
+  $('#zsplit').classList.toggle('on', splitOn);
   $('#zgrid').innerHTML = PLACES.map(p => `<button data-zone="${p.id}" class="${shown === p.id ? 'on' : ''}"><img loading="lazy" src="assets/img/${p.imgs[0]}-s.jpg" alt=""><span>${esc(p.name[lang])}</span></button>`).join('');
   $('#steps').innerHTML = STEPS[lang].map(([a, b]) => `<li><b>${esc(a)}</b><span>${esc(b)}</span></li>`).join('');
   renderPins(); renderFeat(); renderZone();
@@ -156,8 +155,8 @@ function renderZone() {
 document.addEventListener('click', e => {
   const t = e.target;
   const lb = t.closest('.lang button'); if (lb) { lang = lb.dataset.lang; localStorage.setItem('nn-lang', lang); renderText(); return; }
-  if (t.closest('[data-split]') || t.closest('#split')) { setSplit(!splitOn); return; }
-  const r = t.closest('#rail button[data-id], .pin'); if (r) { go(r.dataset.id); return; }
+  if (t.closest('#zsplit') || t.closest('#split')) { setSplit(!splitOn); return; }
+  const r = t.closest('.pin'); if (r) { go(r.dataset.id); return; }
   const st = t.closest('[data-step]'); if (st) { const k = PLACES.findIndex(p => p.id === (current || shown)); go(PLACES[(k + +st.dataset.step + PLACES.length) % PLACES.length].id); return; }
   if (t.closest('[data-more]')) { $('#zone').scrollIntoView({behavior: 'smooth'}); return; }
   const zg = t.closest('[data-zone]'); if (zg) { shown = zg.dataset.zone; gi = 0; renderZone(); return; }
