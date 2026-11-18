@@ -61,7 +61,7 @@ const PLACES = [
     sub: {th: 'จุดขึ้นเรือ', en: 'Boarding point'},
     items: {th: ['ซุ้มอุโมงค์เดินลอด 4.3×3.75 ม. สีกรมท่า เส้นนีออนชมพู ขาว ฟ้า ตัวอักษรนีออน NEON NIGHT บนหัวซุ้ม', 'ผนังด้านในอุโมงค์เป็นเส้นไฟแนวเฉียง', 'ซ้าย: แผงป้ายหลังคาลาด ขอบนีออนฟ้า ชื่อเรือสีทอง พร้อมกล่องโครงไฟและต้นเฟิร์น', 'ขวา: ฉากระแนงขาวเรืองแสง ป้ายวงกลมนีออน "Neon Night 2027" Ø 2 ม. ดอกไม้ขาว-ชมพูช่อสูงสองข้าง', 'พรมกรมท่า ขอบไฟชมพู/ฟ้า เดินผ่านซุ้มถึงสะพานขึ้นเรือ'],
       en: ['4.3 × 3.75 m navy walk-through tunnel, pink/white/cyan neon lines, NEON NIGHT neon letters on top', 'Diagonal light lines inside the tunnel', 'Left: sloped-roof panel with cyan neon edge and the boat name in gold, light-frame cubes and ferns', 'Right: glowing white slat screen, Ø 2 m round "Neon Night 2027" neon sign, tall white-pink flowers on both sides', 'Navy carpet with pink/cyan lit edges through the tunnel to the gangway']},
-    cam: {p: [-10.7, 2.1, 18.3], t: [-10.4, 2.4, 8.6]}, pin: [-9.8, 4.6, 9.3]},
+    cam: {p: [-10.2, 2.5, 24.5], t: [-10.2, 2.3, 9.9]}, pin: [-9.8, 5.2, 10.0]},
   {id: 'roof', img: '03_rooftop-wide', dot: '#FF2E88', seats: 288,
     name: {th: 'ดาดฟ้า', en: 'Open-air rooftop'},
     sub: {th: 'ชั้นบนสุด เปิดโล่ง', en: 'Top deck, open sky'},
@@ -366,6 +366,7 @@ loader.load('assets/boat.glb', g => {
         }
         uv.needsUpdate = true;
       }
+      if (key === 'Pier_Photo') { o.userData.isCard = true; return m; }
       return MAT[key] || m;
     });
     o.material = Array.isArray(o.material) ? nm : nm[0];
@@ -378,6 +379,12 @@ loader.load('assets/boat.glb', g => {
     if (/^TIME_TableLamp_L2/.test(name)) zones.l1.push(o);
     if (/^Interior_L2|^TIME_L2_|^L2_Stern_Bench|^TIME_TableLamp_L2/.test(name) && !/CeilWash|PanelRed|TIME_L2_PanelGlass/.test(name)) zones.l2.push(o);
   });
+  root.traverse(o => { if (o.isMesh && o.userData.isCard) o.visible = false; });
+  {   // Teen's picture laid on at true scale: a plain textured quad (the compressed mesh scrambles UVs)
+    const tex = new THREE.TextureLoader().load('assets/pier_ref_card.jpg'); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+    const card = new THREE.Mesh(new THREE.PlaneGeometry(15.386, 4.119), new THREE.MeshBasicMaterial({map: tex, toneMapped: false, color: 0xe6e6e6, side: THREE.DoubleSide}));
+    card.position.set(-17.8826 + 15.386 / 2, 0.45 + 4.119 / 2, 9.88); card.name = 'PierCard'; scene.add(card);
+  }
   scene.add(root);
   $('#vload').classList.add('done');
   current ? go(current, true) : flyTo(OVERVIEW, true);
