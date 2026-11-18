@@ -102,7 +102,7 @@ const PLACES = [
 const SPLIT = {l2: 7.5, roof: 15.5};                       // how far each deck lifts in the split view (m)
 const SPLIT_CAM = {p: [-30, 34, 50], t: [2, 6.5, 0]};
 const OVERVIEW = {p: [-40, 22, 44], t: [-1, 3, 0]};
-const CRUISE_CAM = {p: [-50, 15, 40], t: [-3, 1.0, 0]};
+const CRUISE_CAM = innerWidth < 760 ? {p: [-50, 12, 52], t: [-3, 9.5, 0]} : {p: [-50, 15, 40], t: [-3, 1.0, 0]};   // phone: boat sits in the lower half, under the text
 const STEPS = {
   th: [['เช็คอิน', 'เอเชียทีค ระหว่างโกดัง 2 และ 3'], ['เดินลอดซุ้มนีออน', 'พรมขอบไฟ ไปถึงสะพานขึ้นเรือ'], ['ขึ้นเรือ เข้าที่นั่ง', 'ดาดฟ้า หัวเรือ หรือห้องแอร์ชั้น 1 และ 2'], ['ถ่ายรูปที่ผนังทอง', 'หัวเรือชั้น 2'], ['ล่องชมวิว', 'วัดอรุณ พระบรมมหาราชวัง สะพานพระราม 8']],
   en: [['Check in', 'Asiatique, between warehouses 2 and 3'], ['Walk through the neon tunnel', 'Lit carpet to the gangway'], ['Board and take your seat', 'Rooftop, bow deck or the deck 1 and 2 rooms'], ['Photo at the gold wall', 'Bow deck, deck 2'], ['Cruise the river', 'Wat Arun, the Grand Palace, Rama VIII Bridge']],
@@ -381,7 +381,7 @@ const roomGeo = new THREE.CylinderGeometry(0.03, 0.24, 1.62, 16, 1, true).transl
 const haloTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); const r = g.createRadialGradient(32, 32, 0, 32, 32, 32);
   r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(.25, 'rgba(255,255,255,.55)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); })();
 const LAMP_COL = [new THREE.Color(0xff7ccf), new THREE.Color(0xb98cff), new THREE.Color(0x6fe6ff)];
-fetch('assets/lamps.json?v=202611181707').then(r => r.json()).then(list => {
+fetch('assets/lamps.json?v=202611181719').then(r => r.json()).then(list => {
   const by = {l1: [], l2: [], roof: []};
   list.forEach(([x, y, z, st]) => by[z > 4.7 ? 'roof' : z > 2.4 ? 'l2' : 'l1'].push([x, z + 0.2, -y, st]));
   for (const [k, arr] of Object.entries(by)) {
@@ -417,7 +417,7 @@ composer.addPass(new OutputPass());
 const WALL = /Walls|_Glass|Mullions|Portholes|Door_|CeilWhite|CeilWash|Grille|PanelRed|PanelGlass|RakedFront|^Stair_|Life_Rings|CoveBlue|StripWhite|Interior_L2_Column|Interior_L2_Beige|Interior_L2_GoldFrame|Interior_L1_Stripe|L1_BowBlock|FrontGlass|^Sign_|Life_Rings|Tyre_Fenders|Hull_RubRail|SlabEdge|SternRailing|SternRail_/;
 const parts = [];
 const draco = new DRACOLoader().setDecoderPath('vendor/three/draco/');
-new GLTFLoader().setDRACOLoader(draco).load('assets/boat.glb?v=202611181707', g => {
+new GLTFLoader().setDRACOLoader(draco).load('assets/boat.glb?v=202611181719', g => {
   const root = g.scene; root.updateMatrixWorld(true);
   const meshes = []; root.traverse(o => { if (o.isMesh) meshes.push(o); });
   const bb = new THREE.Box3();
