@@ -1,0 +1,222 @@
+/* theme-v4 (MOCKUP): Teen 18-11 "เอาธีมกับการ์ดนี้ แต่ฟอนและหน้า hero แบบเดิม".
+   Theme + cards from his design image (dark navy, blue-pink gradient outline pills, LABEL + line, dark glass panel, tall photo cards
+   with caption on a dark fade). Hero layout + fonts (Monoton title, Mitr) stay exactly as v2. Loaded after style.css. */
+:root{--bg:#050a1f;--ink:#f2f4ff;--mut:rgba(226,230,255,.66);--line:rgba(255,255,255,.12);
+  --gb:linear-gradient(90deg,#29d3ff,#7a6bff 55%,#ff3fb0);
+  --panel:linear-gradient(180deg,rgba(28,34,78,.55),rgba(10,14,40,.55))}
+body{background:var(--bg);color:var(--ink)}
+/* pills: dark fill + gradient outline (his EXPLORE EVENT / GET A QUOTE) */
+.pill-dark,.pill-light{background:linear-gradient(#070c24,#070c24) padding-box,var(--gb) border-box;border:2px solid transparent;color:#fff;
+  height:48px;padding:0 24px;gap:12px;font-weight:400;letter-spacing:.02em}
+.pill-dark .arr{width:auto;height:auto;background:none;color:#fff;font-size:16px}
+.pill-dark:hover,.pill-light:hover{background:linear-gradient(#0d1436,#0d1436) padding-box,var(--gb) border-box;box-shadow:0 0 22px rgba(122,107,255,.45)}
+/* glass = his dark panel */
+.glass{background:rgba(9,13,38,.62);border:1px solid rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 18px 40px -18px rgba(0,0,0,.7)}
+.glass-dark{background:rgba(9,13,38,.62);border:1px solid rgba(255,255,255,.14)}
+.nav a{color:rgba(255,255,255,.88)}
+.nav a.on{background:none;color:#fff;box-shadow:inset 0 -2px 0 0 transparent;position:relative}
+.nav a.on::after{content:"";position:absolute;left:20px;right:20px;bottom:3px;height:2px;border-radius:2px;background:var(--gb)}
+.nav a:hover:not(.on){background:rgba(255,255,255,.06)}
+.lang button{color:rgba(255,255,255,.7)}.lang button.on{background:rgba(255,255,255,.14);color:#fff}
+.ic{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.ic:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.ic#zsplit.on{background:rgba(255,255,255,.16);color:#fff}
+/* hero dock cards in his card language */
+.feat,.stats,.split{border-radius:20px}
+.feat{color:#fff}
+.feat .th{border-radius:14px;position:relative}
+.feat .k{color:rgba(255,255,255,.8);letter-spacing:.2em}
+.feat .k span:first-child{display:flex;align-items:center;gap:14px}
+.feat .k span:first-child::after{content:"";width:46px;height:1px;background:rgba(255,255,255,.5)}
+.feat p{color:rgba(255,255,255,.72)}
+.feat .more{color:#fff;letter-spacing:.14em;padding-bottom:6px;position:relative}
+.feat .more::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gb)}
+.feat .dash i{background:rgba(255,255,255,.25)}.feat .dash i.on{background:#fff}
+.feat .arrows button,.feat .arrows button:last-child{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
+.feat .arrows button:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.stats{color:#fff}.stats div{border-right-color:rgba(255,255,255,.12)}
+.stats svg{stroke:#9fe9ff}.stats span{color:rgba(255,255,255,.7)}
+.split .go{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
+.pin{background:rgba(9,13,38,.78);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px)}
+.v-load div{background:rgba(9,13,38,.9);color:#fff;border:1px solid rgba(255,255,255,.14)}
+.hero.exploring .close-explore{background:linear-gradient(#070c24,#070c24) padding-box,var(--gb) border-box;border:2px solid transparent;color:#fff}
+
+/* sections */
+.kicker{display:flex;align-items:center;gap:22px;color:#fff;letter-spacing:.24em;font-size:12.5px}
+.kicker::after{content:"";width:88px;height:1px;background:rgba(255,255,255,.5)}
+.sec-h h2{font-weight:500;color:#fff}
+.sec-h .lead{color:var(--mut)}
+.seats{background:rgba(255,63,176,.14);color:#ff9fd2}
+.card{background:var(--panel);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 22px 50px -24px rgba(0,0,0,.8)}
+.zinfo li{color:rgba(255,255,255,.86);border-bottom-color:var(--line)}
+.thumbs button.on{outline-color:#fff}
+/* zone grid = his tall photo cards, caption centred on a dark fade, inside a glass panel */
+.zgrid{background:var(--panel);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:18px;gap:14px}
+.zgrid button{position:relative;background:#0a0f2a;border:1px solid rgba(255,255,255,.14);border-radius:16px;box-shadow:none;outline:0;transition:transform .25s,box-shadow .25s}
+.zgrid img{aspect-ratio:3/4}
+.zgrid button::after{content:"";position:absolute;inset:auto 0 0 0;height:50%;background:linear-gradient(0deg,rgba(5,8,26,.92),rgba(5,8,26,0))}
+.zgrid span{position:absolute;z-index:1;left:0;right:0;bottom:12px;padding:0 6px;text-align:center;color:#fff;font-weight:400;font-size:13.5px}
+.zgrid button:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(122,107,255,.35)}
+.zgrid button.on{background:linear-gradient(#0a0f2a,#0a0f2a) padding-box,var(--gb) border-box;border:2px solid transparent;box-shadow:0 0 22px rgba(122,107,255,.45)}
+/* lamp / beam cards */
+.lamps figure{position:relative}
+.lamps figcaption b{color:#fff}.lamps figcaption span,.note-s{color:var(--mut)}
+.beam h3{color:#fff}.beam p{color:rgba(255,255,255,.78)}
+.sw{border-right-color:var(--line)}.sw b{color:#fff}.sw span{color:var(--mut)}
+.steps li::before{background:linear-gradient(#070c24,#070c24) padding-box,var(--gb) border-box;border:2px solid transparent}
+.steps li:not(:last-child)::after{background:rgba(255,255,255,.18)}
+.steps b{color:#fff}.steps span{color:var(--mut)}
+/* footer: his wave footer, dark */
+.foot{background:radial-gradient(120% 140% at 100% 100%,rgba(255,63,176,.35),rgba(255,63,176,0) 40%),
+  radial-gradient(90% 160% at 10% 120%,rgba(41,90,255,.4),rgba(41,90,255,0) 55%),#040820;border-top:1px solid rgba(255,255,255,.08);position:relative}
+.foot-in{position:relative}
+.foot-in::before{content:"";position:absolute;left:360px;right:420px;top:50%;height:1px;background:linear-gradient(90deg,rgba(130,120,255,.8),rgba(130,120,255,.3))}
+.wm.dark{color:#fff}.wm small{color:var(--mut)}
+.who b{color:#fff}.who>span{color:var(--mut)}
+.note{color:rgba(255,255,255,.45)}
+.lb{background:rgba(3,5,18,.94)}
+@media (max-width:1180px){.foot-in::before{display:none}}
+@media (max-width:760px){
+  .zgrid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:46%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:12px}
+  .zgrid::-webkit-scrollbar{display:none}.zgrid button{scroll-snap-align:start}
+  .pill-dark{height:44px;padding:0 18px}
+}
+
+html[lang=th] .feat .more{letter-spacing:0}
+
+/* rail (v4): back on desktop, same dark glass theme */
+.rail{padding:8px;gap:8px}
+.rail button{background:transparent;border:1px solid rgba(255,255,255,.28);width:46px;height:46px}
+.rail button svg{stroke:#fff}
+.rail button:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.rail button.on{background:linear-gradient(#070c24,#070c24) padding-box,var(--gb) border-box;border:2px solid transparent;box-shadow:0 0 16px rgba(122,107,255,.55)}
+.rail button.on svg{stroke:#fff}
+.rail button span{background:rgba(9,13,38,.92);border:1px solid rgba(255,255,255,.18);color:#fff}
+.rail hr{border-top-color:rgba(255,255,255,.18)}
+.hero .copy{left:112px}
+.hero.exploring .rail{opacity:1}
+@media (max-width:760px){.rail{display:none}}
+
+/* ===== Liquid Glass + RGB neon edge on every card (Teen 18-11: "การ์ด เป็น Liquid Glass ขอบ RGB neon ปรับใช้ทุกการ์ด") ===== */
+@property --na{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes na{to{--na:360deg}}
+:root{--rgb:conic-gradient(from var(--na),#ff2e88,#b14dff,#3d6bff,#29d3ff,#00ffa3,#ffe14d,#ff7a2e,#ff2e88);
+  --lg-fill:linear-gradient(140deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.05) 38%,rgba(120,140,255,.06) 70%,rgba(255,255,255,.10) 100%),rgba(10,14,42,.34);
+  --lg-shade:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -1px 0 rgba(255,255,255,.10),inset 0 0 24px rgba(255,255,255,.06),
+    -8px 0 26px -12px rgba(255,46,136,.75),8px 0 26px -12px rgba(41,211,255,.75),0 10px 30px -14px rgba(177,77,255,.7),0 22px 50px -24px rgba(0,0,0,.8)}
+/* section backdrop: soft neon light so the glass has something to bend */
+main{position:relative}
+main::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:
+  radial-gradient(38% 22% at 8% 12%,rgba(255,46,136,.20),transparent 70%),radial-gradient(34% 20% at 92% 30%,rgba(41,211,255,.18),transparent 70%),
+  radial-gradient(40% 20% at 15% 62%,rgba(122,107,255,.20),transparent 70%),radial-gradient(36% 18% at 88% 86%,rgba(255,46,136,.16),transparent 70%)}
+main>*{position:relative}
+.glass,.glass-dark,.card,.zgrid,.feat,.stats,.split,.zgrid button,.lamps figure{
+  background:var(--lg-fill);border:0;
+  backdrop-filter:blur(22px) saturate(1.8) brightness(1.08);-webkit-backdrop-filter:blur(22px) saturate(1.8) brightness(1.08);
+  box-shadow:var(--lg-shade)}
+.card,.zgrid,.feat,.stats,.zgrid button,.lamps figure,.nav,.lang{position:relative}
+.glass::before,.glass-dark::before,.card::before,.zgrid::before,.feat::before,.stats::before,.split::before,.zgrid button::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1.6px;pointer-events:none;z-index:3;background:var(--rgb);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+  animation:na 7s linear infinite;filter:drop-shadow(0 0 3px rgba(255,255,255,.35))}
+/* photo tiles: the photo is the glass content; caption stays on the dark fade */
+.zgrid button{background:#0a0f2a}
+.zgrid button.on{background:#0a0f2a;border:0;box-shadow:var(--lg-shade),0 0 26px rgba(255,46,136,.55),0 0 26px rgba(41,211,255,.45)}
+.zgrid button.on::before{padding:2.6px;animation-duration:3s}
+.zgrid button:not(.on)::before{opacity:.75}
+.lamps figure>button,.beam>button,.gal .main{border-radius:16px}
+.rail button.on{box-shadow:0 0 16px rgba(255,46,136,.55),0 0 16px rgba(41,211,255,.45)}
+@media (prefers-reduced-motion:reduce){.glass::before,.glass-dark::before,.card::before,.zgrid::before,.feat::before,.stats::before,.split::before,.zgrid button::before{animation:none}}
+
+/* ===== fewer effects (Teen 18-11 "3 แก้"): RGB neon edge only on the big cards, static; small controls = plain dark glass ===== */
+.glass::before,.glass-dark::before,.zgrid button::before,.zgrid::before{content:none}
+.nav,.lang,.rail,.tools,.pin{background:rgba(9,13,38,.62);box-shadow:0 10px 26px -14px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.14)}
+.card::before,.feat::before,.stats::before,.split::before{animation:none;padding:1.2px;filter:none;opacity:.9}
+.card,.feat,.stats,.split{box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 22px 50px -24px rgba(0,0,0,.8)}
+.zgrid{background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0}
+.zgrid button{border:1px solid rgba(255,255,255,.14);box-shadow:none}
+.zgrid button.on{border:0;box-shadow:none}
+.zgrid button.on::before{content:"";padding:2px;animation:none}
+main::before{opacity:.55}
+
+/* ===== v8 (Teen 18-11 23:35): "ใช้ Liquid Glass blurred see through ขอบ RGB NEON" -> real see-through frosted glass + glowing RGB neon edge on every card ===== */
+:root{--lg2-fill:linear-gradient(150deg,rgba(255,255,255,.14),rgba(255,255,255,.03) 45%,rgba(255,255,255,.08));
+  --lg2-glow:0 0 14px rgba(255,46,136,.45),0 0 22px rgba(41,211,255,.30),inset 0 1px 0 rgba(255,255,255,.35),inset 0 0 18px rgba(255,255,255,.05)}
+.glass,.glass-dark,.card,.feat,.stats,.split,.nav,.lang,.rail,.tools,.zgrid button,.lamps figure,.v-load div{
+  background:var(--lg2-fill)!important;border:0!important;
+  backdrop-filter:blur(26px) saturate(1.7)!important;-webkit-backdrop-filter:blur(26px) saturate(1.7)!important;
+  box-shadow:var(--lg2-glow)!important}
+.zgrid button{background:#0a0f2a!important}
+.glass::before,.glass-dark::before,.card::before,.feat::before,.stats::before,.split::before,.zgrid button::before,.rail::before,.tools::before{
+  content:""!important;position:absolute;inset:0;border-radius:inherit;padding:1.6px!important;pointer-events:none;z-index:3;background:var(--rgb);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+  animation:na 9s linear infinite!important;opacity:1!important;filter:drop-shadow(0 0 4px rgba(255,255,255,.45)) drop-shadow(0 0 6px rgba(255,46,136,.5))!important}
+.feat,.stats,.split,.nav,.lang{position:relative}
+.zgrid button.on::before{padding:2.6px!important;animation-duration:4s!important}
+.zgrid{background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.zgrid::before{content:none!important}
+.feat .th,.gal .main,.lamps figure>button,.beam>button{border-radius:14px}
+.rail button,.ic{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.25)}
+main::before{opacity:1}
+@media (prefers-reduced-motion:reduce){.glass::before,.card::before,.feat::before,.stats::before,.split::before,.zgrid button::before,.rail::before,.tools::before{animation:none!important}}
+
+/* ===== v9 (Teen 18-11 23:50): "การ์ดเป็น glass ซีทรูได้ไหม เบลอ 40%" -> clear see-through glass, blur at 40 % of v8 (26 -> 10 px), almost no fill ===== */
+.glass,.glass-dark,.card,.feat,.stats,.split,.nav,.lang,.rail,.tools,.lamps figure,.v-load div{
+  background:linear-gradient(150deg,rgba(255,255,255,.07),rgba(255,255,255,.015) 50%,rgba(255,255,255,.04))!important;
+  backdrop-filter:blur(10px) saturate(1.4)!important;-webkit-backdrop-filter:blur(10px) saturate(1.4)!important}
+.feat h3,.feat .k,.feat p,.feat .more,.stats b,.stats span,.split b,.split span,.nav a,.lang button{text-shadow:0 1px 3px rgba(0,0,0,.75),0 0 10px rgba(0,0,0,.45)}
+
+/* ===== v10 phone composition (Teen 18-11 00:05 "เวอร์ชั่นมือถือ จัดองค์ประกอบดีๆ") ===== */
+@media (max-width:760px){
+  .hero .copy{left:20px;right:20px;top:84px;max-width:none}                 /* was pushed to 112px by the desktop rail offset */
+  .eyebrow{font-size:10.5px;letter-spacing:.14em;margin-bottom:10px;white-space:nowrap}
+  html[lang=th] .eyebrow{font-size:11.5px;letter-spacing:.04em}
+  .hero h1{font-size:clamp(46px,14vw,60px);line-height:1.04;margin-bottom:12px}
+  .sub{font-size:14.5px;line-height:1.55;max-width:30ch;margin-bottom:16px}
+  .top{padding:0 16px}
+  .dock{left:14px;right:14px;bottom:max(14px,env(safe-area-inset-bottom))}
+  .feat{grid-template-columns:92px 1fr;gap:12px;padding:10px;border-radius:22px}
+  .feat .th{height:104px;border-radius:14px}
+  .feat .k{margin:2px 0 6px}
+  .feat h3{font-size:17px;margin-bottom:2px}
+  .feat p{font-size:12.5px;-webkit-line-clamp:1}
+  .feat .row{padding-top:8px}
+  .feat .arrows button{width:38px;height:38px}
+  /* zone view on phones: keep the zone card (name + arrows) under the picture, compact */
+  .hero.exploring .dock{display:grid}
+  .hero.exploring .feat{grid-template-columns:1fr;padding:12px 14px}
+  .hero.exploring .feat .th{display:none}
+  .hero.exploring .feat p{display:none}
+  .hero.exploring .tools{top:max(14px,env(safe-area-inset-top))}
+  .hint{top:70px}
+  /* sections */
+  main{padding:0 16px 30px}
+  .sec{padding-top:48px}
+  .sec-h{margin:0 2px 16px}
+  .sec-h h2{font-size:25px;line-height:1.3}
+  .sec-h .lead{font-size:14.5px;line-height:1.6}
+  .zone{padding:10px;gap:12px}
+  .zinfo{padding:4px 6px 6px}
+  .zinfo li{padding:10px 0 10px 20px;font-size:14.5px}
+  .thumbs{gap:8px;overflow-x:auto;scrollbar-width:none}.thumbs::-webkit-scrollbar{display:none}
+  .thumbs button{flex:none;width:76px}
+  .zgrid{grid-auto-columns:42%;gap:10px;padding:4px 2px 10px}
+  .zgrid span{font-size:13px;bottom:10px}
+  /* lamps: one clean column of image-left cards, the 3D shot full width */
+  .lamps{grid-template-columns:1fr;gap:12px}
+  .lamps figure{display:grid;grid-template-columns:118px 1fr;align-items:center}
+  .lamps figure>button{height:118px}
+  .lamps img{height:118px;aspect-ratio:auto}
+  .lamps .wide{grid-template-columns:1fr}
+  .lamps .wide>button,.lamps .wide img{height:auto;aspect-ratio:16/9}
+  .lamps figcaption{padding:12px 14px}
+  .lamps figcaption b{font-size:15px;line-height:1.35}
+  .lamps figcaption span{font-size:13px;line-height:1.5}
+  .beam{padding:10px;gap:10px}
+  .beam h3{font-size:19px;margin:6px 0 6px}.beam p{font-size:14px;line-height:1.6}
+  .look{grid-template-columns:1fr 1fr}
+  .sw{padding:16px}.sw i{width:34px;height:34px;margin-bottom:8px}.sw b{font-size:14px}.sw span{font-size:12.5px;line-height:1.5}
+  .steps{padding:18px 16px}
+  .foot-in{padding:22px 16px;gap:14px}
+  .who{gap:10px}
+}

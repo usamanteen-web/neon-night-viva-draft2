@@ -63,41 +63,41 @@ const ICON = {
   split: '<path d="M4 6h16M4 12h16M4 18h16"/><path d="M8 3l-2 3 2 3M16 15l2 3-2 3"/>',
 };
 const PLACES = [
-  {id: 'ext', imgs: ['06_exterior-night'], dot: '#00E5FF', seats: 0,
+  {id: 'ext', imgs: ['06_exterior-night', '3d_ext'], dot: '#00E5FF', seats: 0,
     name: {th: 'ภายนอกเรือ', en: 'The boat at night'}, sub: {th: 'มองจากแม่น้ำ', en: 'From the river'},
     items: {th: ['เส้นนีออนชมพูและฟ้าตามขอบเรือทุกชั้น มองเห็นจากฝั่งตลอดเส้นทาง', 'ป้ายชื่อเรือ VIVA Alangka Cruise คงไว้ชัดเจน', 'ไฟสีทองเดิมของเรือที่ขอบชั้นยังเปิดอยู่', 'ไฟบีมบนดาดฟ้ายิงขึ้นฟ้า เห็นได้ไกล'],
       en: ['Pink and cyan neon along every deck edge, seen from both banks', 'The VIVA Alangka Cruise name stays clear', 'The boat\u2019s own gold edge lights stay on', 'Rooftop beams into the sky, seen from far away']},
     cam: {p: [6, 4.5, -46], t: [0, 3.2, 0]}, pin: null},
-  {id: 'pier', imgs: ['08_pier-archway'], dot: '#FF2E88', seats: 0,
+  {id: 'pier', imgs: ['teen-pier', '08_pier-archway', '3d_pier'], dot: '#FF2E88', seats: 0,
     name: {th: 'ท่าเรือเอเชียทีค', en: 'Asiatique pier'}, sub: {th: 'จุดขึ้นเรือ', en: 'Boarding point'},
     items: {th: ['ซุ้มอุโมงค์นีออนเดินลอด ป้าย NEON NIGHT บนหัวซุ้ม', 'แผงป้ายขอบนีออน ป้ายวงกลม "Neon Night 2027" สำหรับถ่ายรูป', 'กล่องเรืองแสง ต้นไม้ และดอกไม้ขาว-ชมพู', 'พรมขอบไฟ เดินผ่านซุ้มถึงสะพานขึ้นเรือ'],
       en: ['Walk-through neon tunnel with a NEON NIGHT sign on top', 'Neon-edged panel and a round "Neon Night 2027" sign for photos', 'Glowing cubes, plants and white-pink flowers', 'Lit carpet through the tunnel to the gangway']},
-    cam: {p: [-10.2, 2.5, 24.5], t: [-10.2, 2.3, 9.9]}, pin: [-9.8, 5.2, 10.0]},
-  {id: 'roof', imgs: ['03_rooftop-wide', '10_table-lamps-3d'], dot: '#FF2E88', seats: 288,
+    cam: {p: [-9.8, 2.556, 22.646], t: [-9.8, 2.556, 9.88]}, pin: [-9.8, 5.2, 10.0]},
+  {id: 'roof', imgs: ['teen-roof', 'teen-roof-top', '03_rooftop-wide', '10_table-lamps-3d', '3d_roof'], dot: '#FF2E88', seats: 288,
     name: {th: 'ดาดฟ้า', en: 'Open-air rooftop'}, sub: {th: 'ชั้นบนสุด เปิดโล่ง', en: 'Top deck, open sky'},
     items: {th: ['72 โต๊ะ โต๊ะละ 4 ที่ ใต้ท้องฟ้าเปิดโล่ง', 'นีออนชมพูตามราวกันตก และนีออนฟ้าตามขอบดาดฟ้า', 'โคมไฟเรืองแสงบนทุกโต๊ะ สลับก้อนกลมซ้อน บล็อกบิด และแมงกะพรุน', 'ทางเดินกว้าง 1 ม. เดินถึงบันไดได้ทุกทาง'],
       en: ['72 tables of 4 under the open sky', 'Pink neon on the rail, cyan neon on the deck edge', 'A glowing lamp on every table: pebbles, twisted blocks and jellyfish', '1 m aisles, every table reaches the stairs']},
-    cam: {p: [6.5, 7.2, -9.5], t: [11, 5.8, -3.5]}, pin: [-6, 6.8, 0]},
-  {id: 'stage', imgs: ['04_rooftop-stage'], dot: '#A855F7', seats: 0,
+    cam: {p: [0.0, 5.123, 6.966], t: [0.0, 5.123, -5.25]}, pin: [-6, 6.8, 0]},
+  {id: 'stage', imgs: ['teen-stage', '04_rooftop-stage', '3d_stage'], dot: '#A855F7', seats: 0,
     name: {th: 'เวทีดาดฟ้า', en: 'Rooftop stage'}, sub: {th: 'เวทีและจอ LED ของเรือ', en: 'The boat\u2019s stage and LED'},
     items: {th: ['จอ LED 3×2 ม. ของเรือ แสดงกราฟิก NEON NIGHT', 'กรอบนีออนม่วงรอบจอ และเส้นไฟชมพูหน้าเวที', 'ไฟบีม 8 ตัวยิงขึ้นฟ้า และไฟ PAR 8 ตัว วางพื้นข้างเวที', 'ป้ายนีออน NEON NIGHT ข้างจอ 2 ป้าย'],
       en: ['The boat\u2019s 3 × 2 m LED screen shows the NEON NIGHT graphic', 'Violet neon frame around the screen, pink line along the stage front', '8 beam lights into the sky and 8 PAR lights on the deck beside the stage', 'Two NEON NIGHT neon signs beside the screen']},
-    cam: {p: [3.5, 7.4, 3.2], t: [16.2, 6.1, 0]}, pin: [16.6, 7.6, 0]},
-  {id: 'bow', imgs: ['07_bow-deck-gold-backdrop', '05_L2-bow-deck'], dot: '#D9A85A', seats: 48,
+    cam: {p: [2.468, 5.047, 0.635], t: [16.6, 5.047, 0.635]}, pin: [16.6, 7.6, 0]},
+  {id: 'bow', imgs: ['teen-bow', '07_bow-deck-gold-backdrop', '05_L2-bow-deck', '3d_bow'], dot: '#D9A85A', seats: 48,
     name: {th: 'หัวเรือชั้น 2 · ผนังถ่ายรูป', en: 'Bow deck · photo wall'}, sub: {th: 'ลานเปิดหน้าห้อง VIP', en: 'Open deck in front of the VIP room'},
     items: {th: ['ผนังถ่ายรูปชิมเมอร์ทอง 4×2 ม. ป้ายนีออน "Neon Night 2027"', 'คริสตัลเรืองแสงข้างละ 3 ชิ้น', 'ไฟส่องผนังและไฟส่องหน้า ให้ภาพถ่ายสวย', '48 ที่นั่งรับลมริมแม่น้ำ โคมไฟเรืองแสงทุกโต๊ะ'],
       en: ['4 × 2 m gold shimmer photo wall with a "Neon Night 2027" neon sign', 'Three glowing crystals on each side', 'Wall and face lighting set for good photos', '48 seats in the river breeze, a glowing lamp on every table']},
-    cam: {p: [27.5, 5.0, 5.5], t: [17.6, 3.4, 0]}, pin: [17.3, 5.0, 0]},
-  {id: 'l2', imgs: ['02_L2-VIP-dining', '09_L2-beams-3d', '11_L2-wide-3d'], dot: '#FF2E88', seats: 200,
+    cam: {p: [26.64, 3.544, 1.387], t: [17.27, 3.544, 1.387]}, pin: [17.3, 5.0, 0]},
+  {id: 'l2', imgs: ['teen-l2', 'teen-l2-wide', '02_L2-VIP-dining', '09_L2-beams-3d', '11_L2-wide-3d', '3d_l2'], dot: '#FF2E88', seats: 200,
     name: {th: 'ห้องอาหารชั้น 2 (VIP)', en: 'Deck 2 dining room (VIP)'}, sub: {th: 'ห้องแอร์', en: 'Air-conditioned'},
     items: {th: ['ไฟบีมมูฟวิ่งเฮด 6 ตัว ยิงลำแสงชมพู-ฟ้าขึ้นฝ้า', 'นีออนชมพูตามขอบกระจกทั้งสองฝั่ง', 'จอ LED แสดงกราฟิก NEON NIGHT พร้อมกรอบนีออนม่วง', 'ทุกโต๊ะ: โคมไฟเรืองแสง ผ้ารันเนอร์ดำ', 'ป้ายนีออน NEON NIGHT 2 ป้าย'],
       en: ['Six moving-head beams in pink and cyan onto the ceiling', 'Pink neon along the windows on both sides', 'LED screen with the NEON NIGHT graphic and a violet neon frame', 'Every table: glowing lamp and black runner', 'Two NEON NIGHT neon signs']},
-    cam: {p: [-4, 17.5, 15.5], t: [-3.5, 2.9, 0.5]}, pin: [-6, 4.6, -6.3], cut: 'l2'},
-  {id: 'l1', imgs: ['01_L1-aircon-dining'], dot: '#00E5FF', seats: 160,
+    cam: {p: [8.202, 3.451, 0.334], t: [16.46, 3.451, 0.334]}, pin: [-6, 4.6, -6.3], cut: 'l2'},
+  {id: 'l1', imgs: ['teen-l1', '01_L1-aircon-dining', '3d_l1'], dot: '#00E5FF', seats: 160,
     name: {th: 'ห้องอาหารชั้น 1', en: 'Deck 1 dining room'}, sub: {th: 'ห้องแอร์ พร้อมบุฟเฟ่ต์', en: 'Air-conditioned, with buffet'},
     items: {th: ['นีออนฟ้าตามขอบกระจกทั้งสองฝั่ง', 'ขอบเคาน์เตอร์บุฟเฟ่ต์เป็นเส้นไฟฟ้า', 'จอ LED แสดงกราฟิก NEON NIGHT พร้อมกรอบนีออนม่วง', 'ทุกโต๊ะ: โคมไฟเรืองแสง ผ้ารันเนอร์ดำ', 'ป้ายนีออน NEON NIGHT 2 ป้าย'],
       en: ['Cyan neon along the windows on both sides', 'Lit cyan edge on the buffet counter', 'LED screen with the NEON NIGHT graphic and a violet neon frame', 'Every table: glowing lamp and black runner', 'Two NEON NIGHT neon signs']},
-    cam: {p: [-1, 12.5, 23], t: [1, 0.8, 0]}, pin: [6, 2.3, 6.4], cut: 'l1'},
+    cam: {p: [-1.544, 2.02, 0.263], t: [17.25, 2.02, 0.263]}, pin: [6, 2.3, 6.4], cut: 'l1'},
 ];
 const SPLIT = {l2: 7.5, roof: 15.5};                       // how far each deck lifts in the split view (m)
 const SPLIT_CAM = {p: [-30, 34, 50], t: [2, 6.5, 0]};
@@ -123,6 +123,9 @@ function renderText() {
   $('#zsplit').classList.toggle('on', splitOn);
   $('#zgrid').innerHTML = PLACES.map(p => `<button data-zone="${p.id}" class="${shown === p.id ? 'on' : ''}"><img loading="lazy" src="assets/img/${p.imgs[0]}-s.jpg" alt=""><span>${esc(p.name[lang])}</span></button>`).join('');
   $('#steps').innerHTML = STEPS[lang].map(([a, b]) => `<li><b>${esc(a)}</b><span>${esc(b)}</span></li>`).join('');
+  const rail = $('#rail');
+  if (rail) rail.innerHTML = PLACES.map(p => `<button data-id="${p.id}" class="${current === p.id ? 'on' : ''}" aria-label="${esc(p.name[lang])}"><svg viewBox="0 0 24 24">${ICON[p.id]}</svg><span>${esc(p.name[lang])}</span></button>`).join('')
+    + `<hr><button data-split="1" class="${splitOn ? 'on' : ''}" aria-label="${esc(T[lang].split_h)}"><svg viewBox="0 0 24 24">${ICON.split}</svg><span>${esc(splitOn ? T[lang].split_back : T[lang].split_h)}</span></button>`;
   renderPins(); renderFeat(); renderZone();
   $('#split b').textContent = splitOn ? T[lang].split_back : T[lang].split_h;
 }
@@ -154,8 +157,8 @@ function renderZone() {
 document.addEventListener('click', e => {
   const t = e.target;
   const lb = t.closest('.lang button'); if (lb) { lang = lb.dataset.lang; localStorage.setItem('nn-lang', lang); renderText(); return; }
-  if (t.closest('#zsplit') || t.closest('#split')) { setSplit(!splitOn); return; }
-  const r = t.closest('.pin'); if (r) { go(r.dataset.id); return; }
+  if (t.closest('#zsplit') || t.closest('#split') || t.closest('#rail [data-split]')) { setSplit(!splitOn); return; }
+  const r = t.closest('#rail button[data-id], .pin'); if (r) { go(r.dataset.id); return; }
   const st = t.closest('[data-step]'); if (st) { const k = PLACES.findIndex(p => p.id === (current || shown)); go(PLACES[(k + +st.dataset.step + PLACES.length) % PLACES.length].id); return; }
   if (t.closest('[data-more]')) { $('#zone').scrollIntoView({behavior: 'smooth'}); return; }
   const zg = t.closest('[data-zone]'); if (zg) { shown = zg.dataset.zone; gi = 0; renderZone(); return; }
@@ -347,6 +350,34 @@ Object.assign(MAT, {MH_Black: std({color: 0x121216, roughness: .5}), MH_Lens_pin
 
 /* groups: boat (moves when cruising) > decks (lift apart in the split view) */
 const boat = new THREE.Group(); scene.add(boat);
+/* ZCARDS-BEGIN */
+const ZCARDS = {"bow": {"w": 11.259, "h": 6.337, "pos": [17.27, 3.544, 1.387], "rotY": 1.5708, "cam": {"p": [26.64, 3.544, 1.387], "t": [17.27, 3.544, 1.387]}}, "stage": {"w": 16.981, "h": 4.048, "pos": [16.6, 5.047, 0.635], "rotY": -1.5708, "cam": {"p": [2.468, 5.047, 0.635], "t": [16.6, 5.047, 0.635]}}, "roof": {"w": 14.679, "h": 5.826, "pos": [0.0, 5.123, -5.25], "rotY": 0.0, "cam": {"p": [0.0, 5.123, 6.966], "t": [0.0, 5.123, -5.25]}}, "pier": {"w": 15.339, "h": 8.633, "pos": [-9.8, 2.556, 9.88], "rotY": 0.0, "cam": {"p": [-9.8, 2.556, 22.646], "t": [-9.8, 2.556, 9.88]}}, "l1": {"w": 22.582, "h": 12.702, "pos": [17.25, 2.02, 0.263], "rotY": -1.5708, "cam": {"p": [-1.544, 2.02, 0.263], "t": [17.25, 2.02, 0.263]}}, "l2": {"w": 9.923, "h": 3.976, "pos": [16.46, 3.451, 0.334], "rotY": -1.5708, "cam": {"p": [8.202, 3.451, 0.334], "t": [16.46, 3.451, 0.334]}}};
+const zcard = {};   // Teen's zone pictures at true scale (measured anchors), shown only in that zone's view
+for (const [k, c] of Object.entries(ZCARDS)) {
+  const tx = new THREE.TextureLoader().load(`assets/zcard_${k}.jpg`); tx.colorSpace = THREE.SRGBColorSpace; tx.anisotropy = 8;
+  const am = new THREE.TextureLoader().load(`assets/zmask_${k}.jpg`);
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(c.w, c.h), new THREE.MeshBasicMaterial({map: tx, alphaMap: am, transparent: true, fog: false, toneMapped: false, color: 0xd0d0d0, depthTest: false, depthWrite: false}));
+  m.position.set(...c.pos); m.rotation.y = c.rotY; m.renderOrder = 30; m.visible = false; m.name = 'ZCard_' + k; boat.add(m); zcard[k] = m;
+  const bd = new THREE.Mesh(new THREE.PlaneGeometry(c.w * 6, c.h * 10), new THREE.MeshBasicMaterial({color: 0x05060d, transparent: true, opacity: .93, fog: false, depthTest: false, depthWrite: false}));
+  bd.position.z = -0.05; bd.renderOrder = 29; bd.name = 'ZCardBackdrop_' + k; m.add(bd);   // CARDBACKDROP
+}
+let cardOn = false;   // a picture is up: no bloom, no lamp halos (they smear over the picture near the camera)
+function showCard(id) {
+  cardOn = !!(id && zcard[id]);
+  for (const k in zcard) { zcard[k].visible = k === id; zcard[k].children.forEach(ch => { ch.visible = camera.aspect < 1; }); }
+  scene.traverse(o => { if (o.isPoints || /TableLamp/.test(o.name)) o.visible = !cardOn; });
+  beams.forEach(b => { b.visible = !cardOn; });
+}
+function cardCam(id, cam) {   // whole picture in view on any screen: back off along the view line until width and height fit
+  const c = ZCARDS[id]; if (!c) return cam;
+  const vf = THREE.MathUtils.degToRad(camera.fov), hf = 2 * Math.atan(Math.tan(vf / 2) * camera.aspect);
+  const d = Math.max(c.h / 2 / Math.tan(vf / 2), c.w / 2 / Math.tan(hf / 2)) * 1.04;
+  const t = new THREE.Vector3(...cam.t), dir = new THREE.Vector3(...cam.p).sub(t).normalize();
+  const p = t.clone().add(dir.multiplyScalar(d));
+  if (id === 'roof' && camera.aspect >= 1) p.z = Math.min(p.z, 4.6);   // desktop: stay inside the railing; phones back off so the picture fits
+  return {p: p.toArray(), t: cam.t};
+}
+/* ZCARDS-END */
 const deck = {l1: new THREE.Group(), l2: new THREE.Group(), roof: new THREE.Group()};
 Object.values(deck).forEach(g => boat.add(g));
 const pierG = new THREE.Group(); scene.add(pierG); pierG.visible = false;
@@ -381,14 +412,14 @@ const roomGeo = new THREE.CylinderGeometry(0.03, 0.24, 1.62, 16, 1, true).transl
 const haloTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); const r = g.createRadialGradient(32, 32, 0, 32, 32, 32);
   r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(.25, 'rgba(255,255,255,.55)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); })();
 const LAMP_COL = [new THREE.Color(0xff7ccf), new THREE.Color(0xb98cff), new THREE.Color(0x6fe6ff)];
-fetch('assets/lamps.json?v=202611181719').then(r => r.json()).then(list => {
+fetch('assets/lamps.json?v=202611182355').then(r => r.json()).then(list => {
   const by = {l1: [], l2: [], roof: []};
-  list.forEach(([x, y, z, st]) => by[z > 4.7 ? 'roof' : z > 2.4 ? 'l2' : 'l1'].push([x, z + 0.2, -y, st]));
+  list.forEach(([x, y, z, st]) => by[z > 4.7 ? 'roof' : z > 2.4 ? 'l2' : 'l1'].push([x, z + 0.13, -y, st]));   // halo at the 166 mm lamp
   for (const [k, arr] of Object.entries(by)) {
     const pos = new Float32Array(arr.length * 3), col = new Float32Array(arr.length * 3);
     arr.forEach(([x, y, z, st], i) => { pos.set([x, y, z], i * 3); col.set([LAMP_COL[st].r, LAMP_COL[st].g, LAMP_COL[st].b], i * 3); });
     const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(pos, 3)); geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-    const pts = new THREE.Points(geo, new THREE.PointsMaterial({size: 0.75, map: haloTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true, opacity: .9}));
+    const pts = new THREE.Points(geo, new THREE.PointsMaterial({size: 0.55, map: haloTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true, opacity: .9}));
     pts.renderOrder = 6; deck[k].add(pts);
   }
 });
@@ -449,8 +480,8 @@ new GLTFLoader().setDRACOLoader(draco).load('assets/boat.glb?v=202611181719', g 
   meshes.forEach(o => { const l = o.userData.lvl; (l === 'world' ? scene : l === 'pier' ? pierG : deck[l]).attach(o); });
   { // Teen's pier picture at true scale (plain quad: the compressed mesh scrambles UVs)
     const tex = new THREE.TextureLoader().load('assets/pier_ref_card.jpg'); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
-    const card = new THREE.Mesh(new THREE.PlaneGeometry(15.386, 4.119), new THREE.MeshBasicMaterial({map: tex, toneMapped: false, color: 0xe6e6e6, side: THREE.DoubleSide}));
-    card.position.set(-17.8826 + 15.386 / 2, 0.45 + 4.119 / 2, 9.88); pierG.add(card);
+    const card = new THREE.Mesh(new THREE.PlaneGeometry(15.339, 3.761), new THREE.MeshBasicMaterial({map: tex, toneMapped: false, color: 0xe6e6e6, side: THREE.DoubleSide}));
+    card.position.set(-9.800, 2.331, 9.88); pierG.add(card);
   }
   $('#vload').classList.add('done');
   window.__scene = scene;
@@ -460,6 +491,7 @@ new GLTFLoader().setDRACOLoader(draco).load('assets/boat.glb?v=202611181719', g 
 /* visibility modes */
 let lift = {l2: 0, roof: 0}, liftTo = {l2: 0, roof: 0};
 function applyVis(mode) {
+  if (typeof showCard === 'function') showCard(null);
   const inRoom = mode === 'l1' || mode === 'l2';
   parts.forEach(o => {
     const l = o.userData.lvl; let v = true;
@@ -497,7 +529,7 @@ function go(id) {
   current = id; shown = id; gi = 0;
   if (!exploring) { exploring = true; hero.classList.add('exploring'); controls.enableZoom = true; controls.enablePan = true; }
   setCruise(false); controls.autoRotate = false; dockBoat();
-  const p = P(id); applyVis(p.cut || ''); renderText(); flyTo(p.cam);
+  const p = P(id); applyVis(ZCARDS[id] ? '' : (p.cut || '')); showCard(id); renderText(); flyTo(cardCam(id, p.cam));
 }
 function setSplit(on) {
   splitOn = on; current = null;
@@ -587,7 +619,7 @@ renderer.setAnimationLoop(() => {
   controls.update();
   water.material.uniforms.time.value = t;
   beams.forEach(b => { const k = b.userData.k; b.rotation.z = (b.userData.base || 0) + Math.sin(t * .45 + k * .8) * b.userData.sw * (k % 2 ? 1 : -1); b.rotation.x = Math.cos(t * .37 + k * 1.3) * b.userData.tw; });
-  if (useBloom) composer.render(); else renderer.render(scene, camera);
+  if (useBloom && !cardOn) composer.render(); else renderer.render(scene, camera);
   placePins(viewer.clientWidth, viewer.clientHeight);
   window.__READY__ = $('#vload').classList.contains('done');
 });
