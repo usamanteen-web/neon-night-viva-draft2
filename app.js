@@ -59,14 +59,14 @@ const PLACES = [
   {id: 'pier', img: '08_pier-archway', dot: '#FF2E88', seats: 0,
     name: {th: 'ท่าเรือเอเชียทีค', en: 'Asiatique pier'},
     sub: {th: 'จุดขึ้นเรือ', en: 'Boarding point'},
-    items: {th: ['ซุ้มทางเข้า 3×3 ม. พันไฟนีออนชมพูและฟ้า ป้าย NEON NIGHT ด้านบน', 'พรมดำกว้าง 1.2 ม. ขอบไฟฟ้า จากซุ้มถึงสะพานขึ้นเรือ', 'ไฟนีออนฟ้าตามราวสะพานขึ้นเรือ', 'ลูกบอลไฟเรืองแสงเรียงริมพรม', 'ฉายข้อความ WELCOME TO NEON NIGHT บนข้างเรือ'],
-      en: ['3 × 3 m entrance arch wrapped in pink and cyan neon, NEON NIGHT sign on top', '1.2 m black carpet with lit edges from the arch to the gangway', 'Cyan neon along the gangway rails', 'Glowing light spheres along the carpet', 'WELCOME TO NEON NIGHT projected on the hull']},
-    cam: {p: [-16.5, 4.6, 19.5], t: [-9.6, 1.7, 9.6]}, pin: [-9.8, 4.1, 10.3]},
+    items: {th: ['ซุ้มอุโมงค์เดินลอด 3.2×3.3 ม. ขอบนีออนชมพู ช่องเดินขอบนีออนฟ้า ผนังด้านในเป็นระแนงไฟ', 'ป้ายกล่องไฟ NEON NIGHT บนหัวซุ้ม', 'ป้ายวงกลมนีออน "Neon Night 2027" และแผงป้ายเฉียงขอบนีออน สำหรับถ่ายรูป', 'กระถางกล่องเรืองแสง ต้นไม้ และแจกันดอกไม้ชมพู-ขาว', 'พรมดำขอบไฟ ไปถึงสะพานขึ้นเรือที่ราวติดไฟนีออนฟ้า'],
+      en: ['3.2 × 3.3 m walk-through neon tunnel: pink outline, cyan doorway, glowing slats inside', 'NEON NIGHT light-box sign on top', 'Round "Neon Night 2027" neon sign and an angled neon-edged panel for photos', 'Glowing cube planters, plants and pink-white flowers', 'Black carpet with lit edges to the gangway, cyan neon on its rails']},
+    cam: {p: [-9.8, 2.6, 21.5], t: [-9.8, 1.8, 9.6]}, pin: [-9.8, 4.2, 10.0]},
   {id: 'roof', img: '03_rooftop-wide', dot: '#FF2E88', seats: 288,
     name: {th: 'ดาดฟ้า', en: 'Open-air rooftop'},
     sub: {th: 'ชั้นบนสุด เปิดโล่ง', en: 'Top deck, open sky'},
-    items: {th: ['72 โต๊ะ โต๊ะละ 4 ที่ ใต้ท้องฟ้าเปิดโล่ง', 'นีออนชมพูตามราวกันตก และนีออนฟ้าตามขอบดาดฟ้า', 'โคมไฟ LED และผ้ารันเนอร์ดำบนทุกโต๊ะ', 'ทางเดินกว้าง 1 ม. เดินถึงบันไดได้ทุกทาง'],
-      en: ['72 tables of 4 under the open sky', 'Pink neon on the rail, cyan neon on the deck edge', 'LED table lamp and black runner on every table', '1 m aisles, every table reaches the stairs']},
+    items: {th: ['72 โต๊ะ โต๊ะละ 4 ที่ ใต้ท้องฟ้าเปิดโล่ง', 'นีออนชมพูตามราวกันตก และนีออนฟ้าตามขอบดาดฟ้า', 'โคมไฟตั้งโต๊ะเรืองแสงหลากสี และผ้ารันเนอร์ดำ บนทุกโต๊ะ', 'ทางเดินกว้าง 1 ม. เดินถึงบันไดได้ทุกทาง'],
+      en: ['72 tables of 4 under the open sky', 'Pink neon on the rail, cyan neon on the deck edge', 'A glowing colour table lamp and a black runner on every table', '1 m aisles, every table reaches the stairs']},
     cam: {p: [-31, 9.5, 5.5], t: [-2, 5.6, 0]}, pin: [-6, 6.8, 0]},
   {id: 'stage', img: '04_rooftop-stage', dot: '#A855F7', seats: 0,
     name: {th: 'เวทีดาดฟ้า', en: 'Rooftop stage'},
@@ -77,20 +77,20 @@ const PLACES = [
   {id: 'bow', img: '07_bow-deck-gold-backdrop', dot: '#D9A85A', seats: 48,
     name: {th: 'หัวเรือชั้น 2 · ผนังถ่ายรูป', en: 'Bow deck · photo wall'},
     sub: {th: 'ลานเปิดหน้าห้อง VIP', en: 'Open deck in front of the VIP room'},
-    items: {th: ['ผนังถ่ายรูปชิมเมอร์ทอง 4×2 ม. ป้ายนีออน "Neon Night 2027"', 'คริสตัลเรืองแสงข้างละ 3 ชิ้น', 'ไฟส่องผนังและไฟส่องหน้า ให้ภาพถ่ายสวย', '48 ที่นั่งรับลมริมแม่น้ำ'],
-      en: ['4 × 2 m gold shimmer photo wall with a "Neon Night 2027" neon sign', 'Three glowing crystals on each side', 'Wall and face lighting set for good photos', '48 seats in the river breeze']},
+    items: {th: ['ผนังถ่ายรูปชิมเมอร์ทอง 4×2 ม. ป้ายนีออน "Neon Night 2027"', 'คริสตัลเรืองแสงข้างละ 3 ชิ้น', 'ไฟส่องผนังและไฟส่องหน้า ให้ภาพถ่ายสวย', '48 ที่นั่งรับลมริมแม่น้ำ โคมไฟเรืองแสงทุกโต๊ะ'],
+      en: ['4 × 2 m gold shimmer photo wall with a "Neon Night 2027" neon sign', 'Three glowing crystals on each side', 'Wall and face lighting set for good photos', '48 seats in the river breeze, a glowing lamp on every table']},
     cam: {p: [27.5, 5.0, 5.5], t: [17.6, 3.4, 0]}, pin: [17.3, 5.0, 0]},
   {id: 'l2', img: '02_L2-VIP-dining', dot: '#FF2E88', seats: 200,
     name: {th: 'ห้องอาหารชั้น 2 (VIP)', en: 'Deck 2 dining room (VIP)'},
     sub: {th: 'ห้องแอร์', en: 'Air-conditioned'},
-    items: {th: ['นีออนชมพูตามขอบกระจกทั้งสองฝั่ง', 'ไฟฝ้าของเรือเป็นโทนชมพูและม่วง', 'จอ LED แสดงกราฟิก NEON NIGHT พร้อมกรอบนีออนม่วง', 'บนโต๊ะ: ผ้ารันเนอร์ดำ ป้ายนีออนตั้งโต๊ะ เทียน LED', 'ไฟส่องผนังตามเสา และป้ายนีออน NEON NIGHT 2 ป้าย'],
-      en: ['Pink neon along the windows on both sides', 'The boat\u2019s ceiling light in pink and violet', 'LED screen with the NEON NIGHT graphic and a violet neon frame', 'On the tables: black runner, small neon sign, LED candle', 'Uplights at the pillars and two NEON NIGHT neon signs']},
+    items: {th: ['นีออนชมพูตามขอบกระจกทั้งสองฝั่ง', 'ไฟฝ้าของเรือเป็นโทนชมพูและม่วง', 'จอ LED แสดงกราฟิก NEON NIGHT พร้อมกรอบนีออนม่วง', 'ทุกโต๊ะ: โคมไฟตั้งโต๊ะเรืองแสงหลากสี ผ้ารันเนอร์ดำ เทียน LED', 'ไฟส่องผนังตามเสา และป้ายนีออน NEON NIGHT 2 ป้าย'],
+      en: ['Pink neon along the windows on both sides', 'The boat\u2019s ceiling light in pink and violet', 'LED screen with the NEON NIGHT graphic and a violet neon frame', 'Every table: glowing colour table lamp, black runner, LED candle', 'Uplights at the pillars and two NEON NIGHT neon signs']},
     cam: {p: [-8, 15.5, 15], t: [-2, 3.0, 0]}, pin: [-6, 4.6, -6.3], cut: 'l2'},
   {id: 'l1', img: '01_L1-aircon-dining', dot: '#00E5FF', seats: 160,
     name: {th: 'ห้องอาหารชั้น 1', en: 'Deck 1 dining room'},
     sub: {th: 'ห้องแอร์ พร้อมบุฟเฟ่ต์', en: 'Air-conditioned, with buffet'},
-    items: {th: ['นีออนฟ้าตามขอบกระจกทั้งสองฝั่ง', 'ขอบเคาน์เตอร์บุฟเฟ่ต์เป็นเส้นไฟฟ้า', 'จอ LED แสดงกราฟิก NEON NIGHT พร้อมกรอบนีออนม่วง', 'บนโต๊ะ: ผ้ารันเนอร์ดำ ป้ายนีออนตั้งโต๊ะ เทียน LED', 'ไฟส่องผนังตามเสา และป้ายนีออน NEON NIGHT 2 ป้าย'],
-      en: ['Cyan neon along the windows on both sides', 'Lit cyan edge on the buffet counter', 'LED screen with the NEON NIGHT graphic and a violet neon frame', 'On the tables: black runner, small neon sign, LED candle', 'Uplights at the pillars and two NEON NIGHT neon signs']},
+    items: {th: ['นีออนฟ้าตามขอบกระจกทั้งสองฝั่ง', 'ขอบเคาน์เตอร์บุฟเฟ่ต์เป็นเส้นไฟฟ้า', 'จอ LED แสดงกราฟิก NEON NIGHT พร้อมกรอบนีออนม่วง', 'ทุกโต๊ะ: โคมไฟตั้งโต๊ะเรืองแสงหลากสี ผ้ารันเนอร์ดำ เทียน LED', 'ไฟส่องผนังตามเสา และป้ายนีออน NEON NIGHT 2 ป้าย'],
+      en: ['Cyan neon along the windows on both sides', 'Lit cyan edge on the buffet counter', 'LED screen with the NEON NIGHT graphic and a violet neon frame', 'Every table: glowing colour table lamp, black runner, LED candle', 'Uplights at the pillars and two NEON NIGHT neon signs']},
     cam: {p: [-2, 12.5, 13.5], t: [4, 0.8, 0]}, pin: [6, 2.3, 6.4], cut: 'l1'},
 ];
 const OVERVIEW = {p: [-40, 22, 44], t: [-1, 3, 0]};
@@ -227,7 +227,7 @@ pl(WARM, 18, 12, -12, 6.0, 0); pl(WARM, 18, 12, 2, 6.0, 0);
 // bow photo wall
 pl(0xffd9a0, 30, 7, 20.2, 3.6, 0); pl(PINK, 10, 5, 18, 3.4, 2.6); pl(CYAN, 10, 5, 18, 3.4, -2.6);
 // pier
-pl(PINK, 22, 8, -9.8, 3.2, 11.2); pl(WARM, 30, 14, -15, 3.4, 9.0); pl(WARM, 30, 14, -3, 3.4, 9.0); pl(CYAN, 10, 9, -9.8, 0.8, 13.5);
+pl(PINK, 22, 8, -9.8, 3.0, 12.0); pl(WARM, 26, 14, -15, 3.4, 9.0); pl(WARM, 26, 14, -3, 3.4, 9.0); pl(CYAN, 12, 6, -9.8, 1.4, 10.2); pl(0xc8a6ff, 10, 6, -13, 1.2, 11.5); pl(PINK, 12, 6, -6.6, 1.8, 11.5);
 
 /* materials */
 function canvasTex(w, h, draw, rep = 1) {
@@ -288,6 +288,15 @@ const MAT = {
   I_Column: std({color: 0xe8e8e8, roughness: .5}), I_Grille: std({color: 0xa9abaf, metalness: .7, roughness: .4}),
   I_PanelRed: std({color: 0x2a0710, roughness: .6}), I_StageCarpet: std({color: 0x2a2a2e, roughness: .95}),
 };
+Object.assign(MAT, {
+  Lamp_pink: neon(0xff4fa8, 1.5), Lamp_violet: neon(0xb36bff, 1.6), Lamp_white: neon(0xf2e8ff, 1.0), Lamp_cyan: neon(0x38e6ff, 1.4), Lamp_coral: neon(0xff7a6b, 1.4),
+  Lamp_Base: std({color: 0xeeeeea, roughness: .4}),
+  Portal_Navy: phys({color: 0x161a3e, roughness: .45, clearcoat: .4}), Portal_Slat: neon(0xd9ccff, 0.9),
+  Plant_Green: std({color: 0x3f9a58, emissive: 0x1c4d29, emissiveIntensity: .6, roughness: .7}),
+  Planter_Glow: neon(0xc8a6ff, 1.0), Planter_Frame: neon(0xf4ecff, 1.3),
+  Flower_Pink: std({color: 0xf2a8ca, emissive: 0x6a2c48, emissiveIntensity: .5, roughness: .6}), Flower_White: std({color: 0xf5f2f5, emissive: 0x4a4650, emissiveIntensity: .5, roughness: .6}),
+  Sign_Disc: std({color: 0x120a26, roughness: .4}), Carpet_Black: std({map: TEX.carpet, roughness: .95}),
+});
 for (let k = 0; k < 6; k++) MAT['Crystal_' + k] = new THREE.MeshPhysicalMaterial({color: 0xffffff, emissive: [0xff7ad0, 0x7ae8ff, 0xc89bff][k % 3], emissiveIntensity: 1.2, roughness: .1, transmission: 0, transparent: true, opacity: .9});
 for (let k = 0; k < 8; k++) MAT['GlowSphere_' + k] = neon(k % 2 ? 0xff5cc8 : 0x5ce8ff, 1.2);
 
@@ -359,10 +368,11 @@ loader.load('assets/boat.glb', g => {
     if (/^LED_Content_|^Boat_LED_Face/.test(name) && !/^Boat_LED_Face/.test(name)) o.visible = false;
     if (/^Boat_LED_Face/.test(name)) o.material = MAT.LED_Screen;
     const z = ud.zone;
-    if (z === 'roof' || /^Rooftop_|Boat_LED|Boat_Stage|Boat_Chairs|Boat_Tables|TIME_Neon_Rooftop|TIME_Neon_Fascia|TIME_Beam|TIME_Par|TIME_Fixture|Stair_/.test(name)) zones.roof.push(o);
+    if (z === 'roof' || /^Rooftop_|Boat_LED|Boat_Stage|Boat_Chairs|Boat_Tables|TIME_Neon_Rooftop|TIME_TableLamp_Roof|TIME_Neon_Fascia|TIME_Beam|TIME_Par|TIME_Fixture|Stair_/.test(name)) zones.roof.push(o);
     if (/^L2_(Walls|Glass|Mullions|RakedFront|FrontGlass)|^Rooftop_Slab|^Rooftop_Fascia|^Interior_L2_CeilWash|^Sign_|^Life_Rings/.test(name)) zones.roofHide.push(o);
     if (/^L1_(Walls|Glass|Mullions|Portholes|Door)|^L2_DeckSlab|^L2_CabinFloor|^Interior_L1_CeilWhite|^TIME_L1_CoveBlue|^TIME_L1_StripWhite|^Hull_RubRail|^TIME_Neon_L2_SlabEdge|^Boat_GoldLED_L2/.test(name)) zones.l1.push(o);
-    if (/^Interior_L2|^TIME_L2_|^L2_Stern_Bench/.test(name) && !/CeilWash|PanelRed|TIME_L2_PanelGlass/.test(name)) zones.l2.push(o);
+    if (/^TIME_TableLamp_L2/.test(name)) zones.l1.push(o);
+    if (/^Interior_L2|^TIME_L2_|^L2_Stern_Bench|^TIME_TableLamp_L2/.test(name) && !/CeilWash|PanelRed|TIME_L2_PanelGlass/.test(name)) zones.l2.push(o);
   });
   scene.add(root);
   $('#vload').classList.add('done');
