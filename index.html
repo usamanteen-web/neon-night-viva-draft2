@@ -6,86 +6,120 @@
 <meta name="robots" content="noindex,nofollow">
 <title>NEON NIGHT · VIVA Alangka Cruise | TIME SERVICE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="assets/logo.png">
 <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.min.js","three/addons/":"./vendor/three/addons/"}}</script>
 </head>
 <body>
-<header class="top">
-  <a class="brand" href="#top"><img src="assets/logo.png" alt=""><span class="wm">TI<span class="m">M</span>E SERVICE<small>Designs and Constructions</small></span></a>
-  <div class="top-r">
-    <div class="lang" role="group" aria-label="Language"><button data-lang="th" class="on">TH</button><button data-lang="en">EN</button></div>
-    <a class="btn" href="#contact" data-t="contact_btn">ติดต่อเรา</a>
+
+<!-- ============ HERO: the boat cruising on the river, live 3D ============ -->
+<section class="hero" id="top">
+  <div class="viewer" id="viewer">
+    <canvas id="c3d" aria-label="3D model of the decorated boat"></canvas>
+    <div class="pins" id="pins"></div>
+    <div class="v-load" id="vload"><img src="assets/img/06_exterior-night-s.jpg" alt=""><div><span data-t="loading">กำลังโหลดเรือ 3D</span> <b id="vpct">0%</b><progress id="vprog" max="100" value="0"></progress></div></div>
   </div>
-</header>
+  <div class="shade"></div>
 
-<main id="top">
-  <section class="hero card">
-    <div class="hero-txt">
-      <span class="chip"><i></i><span data-t="hero_chip">คอนเซ็ปงาน · พ.ค. 2570</span></span>
-      <h1>NEON <span>NIGHT</span></h1>
-      <p class="sub" data-t="hero_sub">ดินเนอร์ล่องเรือธีมนีออน บนเรือ VIVA Alangka Cruise แม่น้ำเจ้าพระยา</p>
-      <div class="stats">
-        <div><b>300–400</b><span data-t="st_guests">แขก</span></div>
-        <div><b>4</b><span data-t="st_areas">โซนรับประทานอาหาร</span></div>
-        <div><b>696</b><span data-t="st_seats">ที่นั่งสูงสุด</span></div>
-      </div>
-      <div class="hero-cta"><a class="btn" href="#tour" data-t="cta_tour">ชมเรือแบบ 3D</a><a class="link" href="#places" data-t="cta_places">ดูการตกแต่งแต่ละโซน</a></div>
+  <header class="top">
+    <a class="brand" href="#top"><img src="assets/logo.png" alt=""><span class="wm">TI<span class="m">M</span>E&nbsp;&nbsp;S E R V I C E</span></a>
+    <nav class="nav glass" aria-label="Sections">
+      <a href="#top" class="on" data-t="nav_home">ภาพรวม</a>
+      <a href="#zone" data-t="nav_zones">โซน</a>
+      <a href="#light" data-t="nav_light">แสงและโคมไฟ</a>
+      <a href="#journey" data-t="nav_journey">เส้นทางแขก</a>
+    </nav>
+    <div class="top-r">
+      <div class="lang glass" role="group" aria-label="Language"><button data-lang="th" class="on">TH</button><button data-lang="en">EN</button></div>
+      <a class="pill-dark" href="#contact"><span data-t="contact_btn">ติดต่อเรา</span><i class="arr">→</i></a>
     </div>
-    <button class="hero-img zoomable" data-src="assets/img/06_exterior-night.jpg" data-cap-key="cap_ext"><img src="assets/img/06_exterior-night.jpg" alt="" width="1600" height="893"></button>
-  </section>
+  </header>
 
-  <section id="tour" class="sec">
-    <div class="sec-h"><h2 data-t="tour_h">สำรวจเรือแบบ 3D</h2><p data-t="tour_p">หมุน ซูม และเลือกโซนเพื่อดูการตกแต่งในแต่ละพื้นที่</p></div>
-    <div class="tour card">
-      <nav class="plist" id="plist" aria-label="Places"></nav>
-      <div class="viewer-wrap">
-        <div class="viewer" id="viewer">
-          <canvas id="c3d"></canvas>
-          <div class="pins" id="pins"></div>
-          <img class="wmk" src="assets/logo.png" alt="">
-          <div class="v-load" id="vload"><img src="assets/img/06_exterior-night-s.jpg" alt=""><div><span data-t="loading">กำลังโหลดโมเดล 3D</span> <b id="vpct">0%</b><progress id="vprog" max="100" value="0"></progress></div></div>
-          <div class="v-tools">
-            <span class="v-hint" data-t="hint">ลากเพื่อหมุน · ซูมด้วยล้อเมาส์หรือสองนิ้ว</span>
-            <div>
-              <button class="ic" id="zin" aria-label="Zoom in">+</button>
-              <button class="ic" id="zout" aria-label="Zoom out">−</button>
-              <button class="ic" id="zreset" aria-label="Reset">⟲</button>
-              <button class="ic" id="zfull" aria-label="Full screen">⤢</button>
-            </div>
-          </div>
-        </div>
-        <article class="detail" id="detail"></article>
-      </div>
+  <aside class="rail glass" id="rail" aria-label="Zones"></aside>
+
+  <div class="copy">
+    <p class="eyebrow" data-t="eyebrow">DINNER CRUISE — CHAO PHRAYA — MAY 2027</p>
+    <h1>Neon<br> <em>Night</em></h1>
+    <p class="sub" data-t="hero_sub">ดินเนอร์ล่องเรือธีมนีออน บนเรือ VIVA Alangka Cruise แม่น้ำเจ้าพระยา</p>
+    <div class="cta">
+      <button class="pill-dark" id="explore"><span data-t="cta_explore">สำรวจเรือ 3D</span><i class="arr">→</i></button>
+      <button class="play" id="cruise" aria-pressed="true"><i class="ring"><svg viewBox="0 0 24 24"><path d="M9 7v10M15 7v10"/></svg></i><span data-t="cruise_pause">หยุดล่องเรือ</span></button>
     </div>
+  </div>
+
+  <ul class="tags" aria-hidden="true"><li>NEON</li><li>RIVER CRUISE</li><li>300–400 GUESTS</li><li>3 DECKS</li></ul>
+
+  <div class="tools glass">
+    <button class="ic" id="zin" aria-label="Zoom in">+</button>
+    <button class="ic" id="zout" aria-label="Zoom out">−</button>
+    <button class="ic" id="zreset" aria-label="Reset">⟲</button>
+    <button class="ic" id="zfull" aria-label="Full screen">⤢</button>
+  </div>
+  <button class="close-explore" id="xexplore" data-t="done">เสร็จ</button>
+  <p class="hint" id="hint" data-t="hint">ลากเพื่อหมุน · Ctrl/⌘ + เลื่อน เพื่อซูม</p>
+
+  <div class="dock">
+    <article class="feat glass" id="feat"></article>
+    <div class="stats glass">
+      <div><svg viewBox="0 0 24 24"><path d="M5 11h14M7 11v8M17 11v8M4 7h16"/></svg><b>696</b><span data-t="st_seats">ที่นั่งสูงสุด</span></div>
+      <div><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><b>7</b><span data-t="st_zones">โซนตกแต่ง</span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3c-3 0-5 2-5 5 0 2 1 3 2 4v2h6v-2c1-1 2-2 2-4 0-3-2-5-5-5zM10 18h4M11 21h2"/></svg><b>166</b><span data-t="st_lamps">โคมไฟบนโต๊ะ</span></div>
+    </div>
+    <button class="split glass-dark" id="split">
+      <span class="av"><img src="assets/logo.png" alt=""></span>
+      <b data-t="split_h">แยกชั้นดูง่าย</b>
+      <span data-t="split_p">ยกแต่ละชั้นแยกกัน ไม่ซ้อนทับ</span>
+      <i class="go">↗</i>
+    </button>
+  </div>
+</section>
+
+<main>
+  <!-- ============ ZONE DETAIL ============ -->
+  <section id="zone" class="sec">
+    <div class="sec-h"><p class="kicker" data-t="k_zone">ZONE</p><h2 id="zname"></h2><span class="seats" id="zseats"></span></div>
+    <div class="zone card">
+      <div class="gal"><button class="main zoomable" id="gmain"><img alt=""></button><div class="thumbs" id="gthumbs"></div></div>
+      <div class="zinfo"><ul id="zitems"></ul><button class="pill-light" id="z3d"><span data-t="see3d">ดูโซนนี้ใน 3D</span> ↑</button></div>
+    </div>
+    <div class="zgrid" id="zgrid"></div>
   </section>
 
-  <section id="places" class="sec">
-    <div class="sec-h"><h2 data-t="places_h">พื้นที่และการตกแต่ง</h2><p data-t="places_p">กดการ์ดเพื่อดูโซนนั้นในโมเดล 3D</p></div>
-    <div class="pgrid" id="pgrid"></div>
-  </section>
+  <!-- ============ LIGHT + LAMPS ============ -->
+  <section id="light" class="sec">
+    <div class="sec-h"><p class="kicker">LIGHT</p><h2 data-t="lamps_h">โคมไฟบนทุกโต๊ะ</h2><p class="lead" data-t="lamps_p">ทุกโต๊ะมีโคมไฟเรืองแสง 1 ดวง ชาร์จแบต เปลี่ยนสีได้ ไม่ต้องเดินสายไฟ สลับ 3 แบบทั่วทั้งเรือ</p></div>
+    <div class="lamps">
+      <figure class="card"><button class="zoomable" data-src="assets/img/lamp-pebble-blocks.jpg"><img src="assets/img/lamp-pebble-blocks.jpg" alt="" loading="lazy"></button><figcaption><b data-t="lamp1_h">ก้อนกลมซ้อน · บล็อกบิด</b><span data-t="lamp1_p">ไล่สีชมพู ม่วง ฟ้า เรืองแสงทั้งตัว</span></figcaption></figure>
+      <figure class="card"><button class="zoomable" data-src="assets/img/lamp-jellyfish.jpg"><img src="assets/img/lamp-jellyfish.jpg" alt="" loading="lazy"></button><figcaption><b data-t="lamp2_h">โคมแมงกะพรุน</b><span data-t="lamp2_p">โดมเรืองแสงกับหนวดใส บนฐานอะคริลิก</span></figcaption></figure>
+      <figure class="card wide"><button class="zoomable" data-src="assets/img/10_table-lamps-3d.jpg"><img src="assets/img/10_table-lamps-3d-s.jpg" alt="" loading="lazy"></button><figcaption><b data-t="lamp3_h">วางจริงบนโต๊ะดาดฟ้า (3D)</b><span data-t="lamp3_p">ทั้ง 3 แบบสลับกันทีละโต๊ะ</span></figcaption></figure>
+    </div>
+    <p class="note-s" data-t="lamp_note">ภาพโคมเป็นภาพตัวอย่างสินค้า รุ่นและสีจริงยืนยันอีกครั้งก่อนสั่ง</p>
 
-  <section id="look" class="sec">
-    <div class="sec-h"><h2 data-t="look_h">โทนสีและบรรยากาศ</h2></div>
+    <div class="beam card">
+      <button class="zoomable" data-src="assets/img/09_L2-beams-3d.jpg"><img src="assets/img/09_L2-beams-3d-s.jpg" alt="" loading="lazy"></button>
+      <div><p class="kicker">DECK 2</p><h3 data-t="beam_h">ไฟบีมในห้องอาหารชั้น 2</h3><p data-t="beam_p">ไฟมูฟวิ่งเฮด 6 ตัว วางพื้นหน้าเวที กลางห้อง และท้ายห้อง ยิงลำแสงชมพูและฟ้าขึ้นฝ้าและผนัง ขยับช้าตามเพลง ไม่ยิงเข้าตาแขก และไม่แขวนจากฝ้า</p></div>
+    </div>
+
     <div class="look card">
       <div class="sw"><i style="--c:#FF2E88"></i><b>Neon Pink</b><span data-t="sw_pink">เส้นนีออนหลัก ราวดาดฟ้าและขอบเรือ</span></div>
       <div class="sw"><i style="--c:#00E5FF"></i><b>Neon Cyan</b><span data-t="sw_cyan">ขอบดาดฟ้า ขอบชั้น 1 และทางเดินพรม</span></div>
-      <div class="sw"><i style="--c:#A855F7"></i><b>Violet</b><span data-t="sw_violet">กรอบจอ LED และไฟฝ้าในห้อง</span></div>
+      <div class="sw"><i style="--c:#A855F7"></i><b>Violet</b><span data-t="sw_violet">กรอบจอ LED และไฟในห้อง</span></div>
       <div class="sw"><i style="--c:#D9A85A"></i><b>Gold</b><span data-t="sw_gold">ผนังถ่ายรูปชิมเมอร์ทอง และไฟทองเดิมของเรือ</span></div>
     </div>
   </section>
 
+  <!-- ============ JOURNEY ============ -->
   <section id="journey" class="sec">
-    <div class="sec-h"><h2 data-t="jr_h">เส้นทางของแขก</h2></div>
+    <div class="sec-h"><p class="kicker">JOURNEY</p><h2 data-t="jr_h">เส้นทางของแขก</h2></div>
     <ol class="steps card" id="steps"></ol>
   </section>
 </main>
 
 <footer id="contact" class="foot">
   <div class="foot-in">
-    <div class="brand"><img src="assets/logo.png" alt=""><span class="wm">TI<span class="m">M</span>E SERVICE<small>Designs and Constructions</small></span></div>
-    <div class="who"><b>Usaman Ohro</b><span>Project Director</span><a class="btn" href="tel:+66661124227">+66 66 112 4227</a></div>
+    <div class="brand"><img src="assets/logo.png" alt=""><span class="wm dark">TI<span class="m">M</span>E&nbsp;&nbsp;S E R V I C E<small>Designs and Constructions</small></span></div>
+    <div class="who"><b>Usaman Ohro</b><span>Project Director</span><a class="pill-dark" href="tel:+66661124227"><span>+66 66 112 4227</span><i class="arr">→</i></a></div>
   </div>
   <p class="note" data-t="note">ภาพทั้งหมดเป็นภาพจำลองแนวคิด รายละเอียดจริงอาจปรับตามหน้างาน</p>
 </footer>
