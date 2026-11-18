@@ -454,7 +454,7 @@ new GLTFLoader().setDRACOLoader(draco).load('assets/boat.glb?v=202611181707', g 
   }
   $('#vload').classList.add('done');
   window.__scene = scene;
-}, e => { if (e.total) { const p = Math.min(99, Math.round(e.loaded / e.total * 100));   // e.total = gzip size on GitHub Pages -> can pass 100 $('#vpct').textContent = p + '%'; $('#vprog').value = p; } },
+}, e => { if (e.total) { const p = Math.min(99, Math.round(e.loaded / e.total * 100)); /* gzip total can pass 100 */ $('#vpct').textContent = p + '%'; $('#vprog').value = p; } },
 () => { $('#vload div').textContent = 'The 3D view could not load.'; });
 
 /* visibility modes */
