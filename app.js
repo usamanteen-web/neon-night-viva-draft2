@@ -355,19 +355,21 @@ const ZCARDS = {"bow": {"w": 11.259, "h": 6.337, "pos": [17.27, 3.544, 1.387], "
 const zcard = {};   // Teen's zone pictures at true scale (measured anchors), shown only in that zone's view
 for (const [k, c] of Object.entries(ZCARDS)) {
   const tx = new THREE.TextureLoader().load(`assets/zcard_${k}.jpg`); tx.colorSpace = THREE.SRGBColorSpace; tx.anisotropy = 8;
-  const am = new THREE.TextureLoader().load(`assets/zmask_${k}.jpg`);
-  const m = new THREE.Mesh(new THREE.PlaneGeometry(c.w, c.h), new THREE.MeshBasicMaterial({map: tx, alphaMap: am, transparent: true, fog: false, toneMapped: false, color: 0xd0d0d0, depthTest: false, depthWrite: false}));
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(c.w, c.h), new THREE.MeshBasicMaterial({map: tx, fog: false, toneMapped: false, color: 0xffffff, depthTest: false, depthWrite: false}));   // OPAQUE: replaces the 3D
   m.position.set(...c.pos); m.rotation.y = c.rotY; m.renderOrder = 30; m.visible = false; m.name = 'ZCard_' + k; boat.add(m); zcard[k] = m;
-  const bd = new THREE.Mesh(new THREE.PlaneGeometry(c.w * 6, c.h * 10), new THREE.MeshBasicMaterial({color: 0x05060d, transparent: true, opacity: .93, fog: false, depthTest: false, depthWrite: false}));
-  bd.position.z = -0.05; bd.renderOrder = 29; bd.name = 'ZCardBackdrop_' + k; m.add(bd);   // CARDBACKDROP
+  const bt = new THREE.TextureLoader().load(`assets/zblur_${k}.jpg`); bt.colorSpace = THREE.SRGBColorSpace;
+  const bs = Math.max(c.w, c.h) * 4;
+  const bd = new THREE.Mesh(new THREE.PlaneGeometry(bs, bs), new THREE.MeshBasicMaterial({map: bt, fog: false, toneMapped: false, depthTest: false, depthWrite: false}));
+  bd.position.z = -0.05; bd.renderOrder = 29; bd.name = 'ZCardBackdrop_' + k; m.add(bd);   // CARDBACKDROP (blurred copy fills the whole view)
 }
 let cardOn = false;   // a picture is up: no bloom, no lamp halos (they smear over the picture near the camera)
 function showCard(id) {
   cardOn = !!(id && zcard[id]);
-  for (const k in zcard) { zcard[k].visible = k === id; zcard[k].children.forEach(ch => { ch.visible = camera.aspect < 1; }); }
+  for (const k in zcard) { zcard[k].visible = k === id; zcard[k].children.forEach(ch => { ch.visible = true; }); }
   scene.traverse(o => { if (o.isPoints || /TableLamp/.test(o.name)) o.visible = !cardOn; });
   beams.forEach(b => { b.visible = !cardOn; });
 }
+controls.addEventListener('start', () => { if (cardOn) showCard(null); });   // dragging = back to the 3D (picture only at the zone viewpoint)
 function cardCam(id, cam) {   // whole picture in view on any screen: back off along the view line until width and height fit
   const c = ZCARDS[id]; if (!c) return cam;
   const vf = THREE.MathUtils.degToRad(camera.fov), hf = 2 * Math.atan(Math.tan(vf / 2) * camera.aspect);

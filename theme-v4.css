@@ -220,3 +220,33 @@ main::before{opacity:1}
   .foot-in{padding:22px 16px;gap:14px}
   .who{gap:10px}
 }
+
+/* ===== v11 (Teen 19-11 00:25 "แก้ มันบังกัน"): on shorter laptop windows the centred zone rail ran into the bottom zone card.
+   Desktop: dock starts right of the rail (same left edge as the hero copy), rail sits under the header and shrinks on short screens. ===== */
+@media (min-width:761px){
+  .dock{left:96px}
+  .rail{top:96px;transform:none;max-height:calc(100% - 96px - 22px)}
+  .hero .copy{left:112px}
+}
+@media (min-width:761px) and (max-height:820px){
+  .rail{gap:6px;padding:7px 6px}
+  .rail button{width:40px;height:40px}
+  .rail button svg{width:18px;height:18px}
+  .rail hr{margin:0}
+}
+@media (min-width:761px) and (max-height:700px){
+  .rail{gap:4px}
+  .rail button{width:36px;height:36px}
+}
+/* v11b: zone card arrows must stay inside the card on narrower laptops */
+@media (min-width:761px){
+  .feat .row{gap:10px;min-width:0}
+  .feat .dash{flex:1 1 auto;min-width:0;overflow:hidden;justify-content:center}
+  .feat .arrows{flex:none}
+  .feat .b{min-width:0}
+}
+@media (min-width:761px) and (max-width:1500px){
+  .feat .dash{display:none}
+  .feat{grid-template-columns:140px 1fr}
+  .feat .th{height:140px}
+}
