@@ -250,3 +250,7 @@ main::before{opacity:1}
   .feat{grid-template-columns:140px 1fr}
   .feat .th{height:140px}
 }
+
+/* 19-11: long galleries never widen the zone card */
+.zone>*{min-width:0}
+.thumbs{overflow-x:auto;scrollbar-width:none}.thumbs::-webkit-scrollbar{display:none}.thumbs button{flex:none}

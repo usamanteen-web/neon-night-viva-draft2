@@ -234,3 +234,9 @@ main{max-width:1280px;margin:0 auto;padding:10px 24px 40px}
 html[lang=th] .eyebrow{letter-spacing:.1em;font-size:13px}
 
 .ic#zsplit.on{background:#26262b;color:#fff}
+
+/* 19-11: deck 2 now has 5 gallery pictures -> thumbs scroll sideways instead of widening the card */
+.zone>*{min-width:0}
+.thumbs{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.thumbs::-webkit-scrollbar{display:none}
+.thumbs button{flex:none}
