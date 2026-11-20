@@ -83,10 +83,10 @@ const PLACES = [
     items: {th: ['จอ LED 3×2 ม. ของเรือ แสดงกราฟิก NEON NIGHT', 'กรอบนีออนม่วงรอบจอ และเส้นไฟชมพูหน้าเวที', 'ไฟบีม 8 ตัวยิงขึ้นฟ้า และไฟ PAR 8 ตัว วางพื้นข้างเวที', 'ป้ายนีออน NEON NIGHT ข้างจอ 2 ป้าย'],
       en: ['The boat\u2019s 3 × 2 m LED screen shows the NEON NIGHT graphic', 'Violet neon frame around the screen, pink line along the stage front', '8 beam lights into the sky and 8 PAR lights on the deck beside the stage', 'Two NEON NIGHT neon signs beside the screen']},
     cam: {p: [2.468, 5.047, 0.635], t: [16.6, 5.047, 0.635]}, pin: [16.6, 7.6, 0]},
-  {id: 'bow', imgs: ['teen-bow', '07_bow-deck-gold-backdrop', '05_L2-bow-deck', '3d_bow'], dot: '#D9A85A', seats: 48,
-    name: {th: 'หัวเรือชั้น 2 · ผนังถ่ายรูป', en: 'Bow deck · photo wall'}, sub: {th: 'ลานเปิดหน้าห้อง VIP', en: 'Open deck in front of the VIP room'},
-    items: {th: ['ผนังถ่ายรูปชิมเมอร์ทอง 4×2 ม. ป้ายนีออน "Neon Night 2027"', 'คริสตัลเรืองแสงข้างละ 3 ชิ้น', 'ไฟส่องผนังและไฟส่องหน้า ให้ภาพถ่ายสวย', '48 ที่นั่งรับลมริมแม่น้ำ โคมไฟเรืองแสงทุกโต๊ะ'],
-      en: ['4 × 2 m gold shimmer photo wall with a "Neon Night 2027" neon sign', 'Three glowing crystals on each side', 'Wall and face lighting set for good photos', '48 seats in the river breeze, a glowing lamp on every table']},
+  {id: 'bow', imgs: ['3d_bow'], dot: '#D9A85A', seats: 0,
+    name: {th: 'หัวเรือชั้น 2 · โฟโต้บูธ', en: 'Bow deck · photo booth'}, sub: {th: 'ลานถ่ายรูปเปิดโล่ง ไม่มีที่นั่ง', en: 'Open photo-booth deck, no seating'},
+    items: {th: ['ผนังถ่ายรูปชิมเมอร์ทอง 4×2 ม. ป้ายนีออน "Neon Night 2027"', 'คริสตัลเรืองแสงข้างละ 3 ชิ้น', 'ไฟส่องผนังและไฟส่องหน้า ให้ภาพถ่ายสวย', 'ไม่มีโต๊ะและที่นั่ง ลานโล่งให้แขกต่อคิวและถ่ายรูปได้สะดวก'],
+      en: ['4 × 2 m gold shimmer photo wall with a "Neon Night 2027" neon sign', 'Three glowing crystals on each side', 'Wall and face lighting set for good photos', 'No tables or seats: open deck so guests can queue and take photos easily']},
     cam: {p: [26.64, 3.544, 1.387], t: [17.27, 3.544, 1.387]}, pin: [17.3, 5.0, 0]},
   {id: 'l2', imgs: ['teen-l2', '12_L2-stage-3d', 'teen-l2-wide', '13_L2-wide-3d', '14_decor-stage-3d', '15_decor-table-3d', '3d_l2'], dot: '#FF2E88', seats: 200,
     name: {th: 'ห้องอาหารชั้น 2 (VIP)', en: 'Deck 2 dining room (VIP)'}, sub: {th: 'ห้องแอร์', en: 'Air-conditioned'},
@@ -104,8 +104,8 @@ const SPLIT_CAM = {p: [-30, 34, 50], t: [2, 6.5, 0]};
 const OVERVIEW = {p: [-40, 22, 44], t: [-1, 3, 0]};
 const CRUISE_CAM = innerWidth < 760 ? {p: [-50, 12, 52], t: [-3, 9.5, 0]} : {p: [-50, 15, 40], t: [-3, 1.0, 0]};   // phone: boat sits in the lower half, under the text
 const STEPS = {
-  th: [['เช็คอิน', 'เอเชียทีค ระหว่างโกดัง 2 และ 3'], ['เดินลอดซุ้มนีออน', 'พรมขอบไฟ ไปถึงสะพานขึ้นเรือ'], ['ขึ้นเรือ เข้าที่นั่ง', 'ดาดฟ้า หัวเรือ หรือห้องแอร์ชั้น 1 และ 2'], ['ถ่ายรูปที่ผนังทอง', 'หัวเรือชั้น 2'], ['ล่องชมวิว', 'วัดอรุณ พระบรมมหาราชวัง สะพานพระราม 8']],
-  en: [['Check in', 'Asiatique, between warehouses 2 and 3'], ['Walk through the neon tunnel', 'Lit carpet to the gangway'], ['Board and take your seat', 'Rooftop, bow deck or the deck 1 and 2 rooms'], ['Photo at the gold wall', 'Bow deck, deck 2'], ['Cruise the river', 'Wat Arun, the Grand Palace, Rama VIII Bridge']],
+  th: [['เช็คอิน', 'เอเชียทีค ระหว่างโกดัง 2 และ 3'], ['เดินลอดซุ้มนีออน', 'พรมขอบไฟ ไปถึงสะพานขึ้นเรือ'], ['ขึ้นเรือ เข้าที่นั่ง', 'ดาดฟ้า หรือห้องแอร์ชั้น 1 และ 2'], ['ถ่ายรูปที่โฟโต้บูธ', 'ผนังทอง หัวเรือชั้น 2'], ['ล่องชมวิว', 'วัดอรุณ พระบรมมหาราชวัง สะพานพระราม 8']],
+  en: [['Check in', 'Asiatique, between warehouses 2 and 3'], ['Walk through the neon tunnel', 'Lit carpet to the gangway'], ['Board and take your seat', 'Rooftop or the deck 1 and 2 rooms'], ['Photo booth at the gold wall', 'Bow deck, deck 2'], ['Cruise the river', 'Wat Arun, the Grand Palace, Rama VIII Bridge']],
 };
 
 /* ------------------------------------------------------------------ UI */
@@ -352,6 +352,7 @@ Object.assign(MAT, {MH_Black: std({color: 0x121216, roughness: .5}), MH_Lens_pin
 const boat = new THREE.Group(); scene.add(boat);
 /* ZCARDS-BEGIN */
 const ZCARDS = {"bow": {"w": 11.259, "h": 6.337, "pos": [17.27, 3.544, 1.387], "rotY": 1.5708, "cam": {"p": [26.64, 3.544, 1.387], "t": [17.27, 3.544, 1.387]}}, "stage": {"w": 16.981, "h": 4.048, "pos": [16.6, 5.047, 0.635], "rotY": -1.5708, "cam": {"p": [2.468, 5.047, 0.635], "t": [16.6, 5.047, 0.635]}}, "roof": {"w": 14.679, "h": 5.826, "pos": [0.0, 5.123, -5.25], "rotY": 0.0, "cam": {"p": [0.0, 5.123, 6.966], "t": [0.0, 5.123, -5.25]}}, "pier": {"w": 15.339, "h": 8.633, "pos": [-9.8, 2.556, 9.88], "rotY": 0.0, "cam": {"p": [-9.8, 2.556, 22.646], "t": [-9.8, 2.556, 9.88]}}, "l1": {"w": 22.582, "h": 12.702, "pos": [17.25, 2.02, 0.263], "rotY": -1.5708, "cam": {"p": [-1.544, 2.02, 0.263], "t": [17.25, 2.02, 0.263]}}, "l2": {"w": 9.923, "h": 3.976, "pos": [16.46, 3.451, 0.334], "rotY": -1.5708, "cam": {"p": [8.202, 3.451, 0.334], "t": [16.46, 3.451, 0.334]}}};
+delete ZCARDS.bow;   // 19-11 client: bow = photo booth, no seats -> Teen's picture (with the banquet table) not shown; 3D view only
 const zcard = {};   // Teen's zone pictures at true scale (measured anchors), shown only in that zone's view
 for (const [k, c] of Object.entries(ZCARDS)) {
   const tx = new THREE.TextureLoader().load(`assets/zcard_${k}.jpg`); tx.colorSpace = THREE.SRGBColorSpace; tx.anisotropy = 8;
@@ -416,7 +417,7 @@ const haloTex = (() => { const c = document.createElement('canvas'); c.width = c
 const LAMP_COL = [new THREE.Color(0xff7ccf), new THREE.Color(0xb98cff), new THREE.Color(0x6fe6ff)];
 fetch('assets/lamps.json?v=202611182355').then(r => r.json()).then(list => {
   const by = {l1: [], l2: [], roof: []};
-  list.forEach(([x, y, z, st]) => by[z > 4.7 ? 'roof' : z > 2.4 ? 'l2' : 'l1'].push([x, z + 0.13, -y, st]));   // halo at the 166 mm lamp
+  list.filter(([x, y, z]) => !(x > 17.0 && z > 2.3 && z < 4.0)).forEach(([x, y, z, st]) => by[z > 4.7 ? 'roof' : z > 2.4 ? 'l2' : 'l1'].push([x, z + 0.13, -y, st]));   // halo at the 166 mm lamp
   for (const [k, arr] of Object.entries(by)) {
     const pos = new Float32Array(arr.length * 3), col = new Float32Array(arr.length * 3);
     arr.forEach(([x, y, z, st], i) => { pos.set([x, y, z], i * 3); col.set([LAMP_COL[st].r, LAMP_COL[st].g, LAMP_COL[st].b], i * 3); });
@@ -480,6 +481,15 @@ new GLTFLoader().setDRACOLoader(draco).load('assets/boat.glb?v=202611181719', g 
     parts.push(o);
   });
   meshes.forEach(o => { const l = o.userData.lvl; (l === 'world' ? scene : l === 'pier' ? pierG : deck[l]).attach(o); });
+  // 19-11 client: bow deck = photo booth, no seating -> hide the boat's bow tables/chairs and the lamps on them
+  meshes.forEach(o => {
+    if (/^BowDeck_(Tables|Chairs)/.test(o.name)) { o.visible = false; o.userData.gone = true; }
+    if (/TableLamp_L2/.test(o.name)) {
+      const pa = o.geometry.attributes.position, v = new THREE.Vector3(), mw = o.matrixWorld;
+      for (let i = 0; i < pa.count; i++) { v.fromBufferAttribute(pa, i).applyMatrix4(mw); if (v.x > 17.0 && v.y > 2.3 && v.y < 4.0) pa.setXYZ(i, 0, -50, 0); }
+      pa.needsUpdate = true; o.geometry.computeBoundingSphere();
+    }
+  });
   { // Teen's pier picture at true scale (plain quad: the compressed mesh scrambles UVs)
     const tex = new THREE.TextureLoader().load('assets/pier_ref_card.jpg'); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
     const card = new THREE.Mesh(new THREE.PlaneGeometry(15.339, 3.761), new THREE.MeshBasicMaterial({map: tex, toneMapped: false, color: 0xe6e6e6, side: THREE.DoubleSide}));
@@ -501,7 +511,7 @@ function applyVis(mode) {
     if (mode === 'l1') v = l !== 'roof' && l !== 'l2' && !(l === 'l1' && o.userData.wall);
     if (mode === 'split') v = l !== 'pier' && !o.userData.wall;
     if (mode && /^Life_Rings|^Tyre_Fenders/.test(o.name)) v = false;
-    o.visible = v && !/^LED_Content_/.test(o.name);
+    o.visible = v && !o.userData.gone && !/^LED_Content_/.test(o.name);
   });
   deck.roof.visible = mode !== 'l1' && mode !== 'l2';
   deck.l2.visible = mode !== 'l1';
