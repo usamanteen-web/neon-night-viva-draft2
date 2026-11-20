@@ -83,7 +83,7 @@ const PLACES = [
     items: {th: ['จอ LED 3×2 ม. ของเรือ แสดงกราฟิก NEON NIGHT', 'กรอบนีออนม่วงรอบจอ และเส้นไฟชมพูหน้าเวที', 'ไฟบีม 8 ตัวยิงขึ้นฟ้า และไฟ PAR 8 ตัว วางพื้นข้างเวที', 'ป้ายนีออน NEON NIGHT ข้างจอ 2 ป้าย'],
       en: ['The boat\u2019s 3 × 2 m LED screen shows the NEON NIGHT graphic', 'Violet neon frame around the screen, pink line along the stage front', '8 beam lights into the sky and 8 PAR lights on the deck beside the stage', 'Two NEON NIGHT neon signs beside the screen']},
     cam: {p: [2.468, 5.047, 0.635], t: [16.6, 5.047, 0.635]}, pin: [16.6, 7.6, 0]},
-  {id: 'bow', imgs: ['3d_bow'], dot: '#D9A85A', seats: 0,
+  {id: 'bow', imgs: ['teen-bow', '3d_bow'], dot: '#D9A85A', seats: 0,
     name: {th: 'หัวเรือชั้น 2 · โฟโต้บูธ', en: 'Bow deck · photo booth'}, sub: {th: 'ลานถ่ายรูปเปิดโล่ง ไม่มีที่นั่ง', en: 'Open photo-booth deck, no seating'},
     items: {th: ['ผนังถ่ายรูปชิมเมอร์ทอง 4×2 ม. ป้ายนีออน "Neon Night 2027"', 'คริสตัลเรืองแสงข้างละ 3 ชิ้น', 'ไฟส่องผนังและไฟส่องหน้า ให้ภาพถ่ายสวย', 'ไม่มีโต๊ะและที่นั่ง ลานโล่งให้แขกต่อคิวและถ่ายรูปได้สะดวก'],
       en: ['4 × 2 m gold shimmer photo wall with a "Neon Night 2027" neon sign', 'Three glowing crystals on each side', 'Wall and face lighting set for good photos', 'No tables or seats: open deck so guests can queue and take photos easily']},
@@ -121,7 +121,7 @@ function renderText() {
   document.querySelectorAll('[data-t]').forEach(el => { const v = T[lang][el.dataset.t]; if (typeof v === 'string') el.textContent = v; });
   document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
   $('#zsplit').classList.toggle('on', splitOn);
-  $('#zgrid').innerHTML = PLACES.map(p => `<button data-zone="${p.id}" class="${shown === p.id ? 'on' : ''}"><img loading="lazy" src="assets/img/${p.imgs[0]}-s.jpg" alt=""><span>${esc(p.name[lang])}</span></button>`).join('');
+  $('#zgrid').innerHTML = PLACES.map(p => `<button data-zone="${p.id}" class="${shown === p.id ? 'on' : ''}"><img loading="lazy" src="assets/img/${p.imgs[0]}-s.jpg?v=20261120" alt=""><span>${esc(p.name[lang])}</span></button>`).join('');
   $('#steps').innerHTML = STEPS[lang].map(([a, b]) => `<li><b>${esc(a)}</b><span>${esc(b)}</span></li>`).join('');
   const rail = $('#rail');
   if (rail) rail.innerHTML = PLACES.map(p => `<button data-id="${p.id}" class="${current === p.id ? 'on' : ''}" aria-label="${esc(p.name[lang])}"><svg viewBox="0 0 24 24">${ICON[p.id]}</svg><span>${esc(p.name[lang])}</span></button>`).join('')
@@ -136,7 +136,7 @@ function renderPins() {
 }
 function renderFeat() {
   const k = PLACES.findIndex(p => p.id === (current || shown)), p = PLACES[k];
-  $('#feat').innerHTML = `<button class="th zoomable" data-src="assets/img/${p.imgs[0]}.jpg" data-cap="${esc(p.name[lang])}"><img src="assets/img/${p.imgs[0]}-s.jpg" alt=""></button>
+  $('#feat').innerHTML = `<button class="th zoomable" data-src="assets/img/${p.imgs[0]}.jpg?v=20261120" data-cap="${esc(p.name[lang])}"><img src="assets/img/${p.imgs[0]}-s.jpg?v=20261120" alt=""></button>
     <div class="b"><div class="k"><span>${esc(T[lang].k_zone)}</span><span>${String(k + 1).padStart(2, '0')} / ${String(PLACES.length).padStart(2, '0')}</span></div>
     <h3>${esc(p.name[lang])}</h3><p>${esc(p.items[lang][0])}</p>
     <div class="row"><button class="more" data-more="1">${esc(T[lang].more)} →</button>
@@ -148,8 +148,8 @@ function renderZone() {
   $('#zname').textContent = p.name[lang];
   $('#zseats').textContent = p.seats ? T[lang].seats(p.seats) : p.sub[lang];
   gi = Math.min(gi, p.imgs.length - 1);
-  const g = $('#gmain'); g.dataset.src = `assets/img/${p.imgs[gi]}.jpg`; g.dataset.cap = p.name[lang]; g.querySelector('img').src = `assets/img/${p.imgs[gi]}.jpg`;
-  $('#gthumbs').innerHTML = p.imgs.length > 1 ? p.imgs.map((f, i) => `<button data-gi="${i}" class="${i === gi ? 'on' : ''}"><img src="assets/img/${f}-s.jpg" alt=""></button>`).join('') : '';
+  const g = $('#gmain'); g.dataset.src = `assets/img/${p.imgs[gi]}.jpg?v=20261120`; g.dataset.cap = p.name[lang]; g.querySelector('img').src = `assets/img/${p.imgs[gi]}.jpg?v=20261120`;
+  $('#gthumbs').innerHTML = p.imgs.length > 1 ? p.imgs.map((f, i) => `<button data-gi="${i}" class="${i === gi ? 'on' : ''}"><img src="assets/img/${f}-s.jpg?v=20261120" alt=""></button>`).join('') : '';
   $('#zitems').style.setProperty('--dot', p.dot);
   $('#zitems').innerHTML = p.items[lang].map(i => `<li>${esc(i)}</li>`).join('');
   document.querySelectorAll('#zgrid button').forEach(b => b.classList.toggle('on', b.dataset.zone === shown));
@@ -352,13 +352,12 @@ Object.assign(MAT, {MH_Black: std({color: 0x121216, roughness: .5}), MH_Lens_pin
 const boat = new THREE.Group(); scene.add(boat);
 /* ZCARDS-BEGIN */
 const ZCARDS = {"bow": {"w": 11.259, "h": 6.337, "pos": [17.27, 3.544, 1.387], "rotY": 1.5708, "cam": {"p": [26.64, 3.544, 1.387], "t": [17.27, 3.544, 1.387]}}, "stage": {"w": 16.981, "h": 4.048, "pos": [16.6, 5.047, 0.635], "rotY": -1.5708, "cam": {"p": [2.468, 5.047, 0.635], "t": [16.6, 5.047, 0.635]}}, "roof": {"w": 14.679, "h": 5.826, "pos": [0.0, 5.123, -5.25], "rotY": 0.0, "cam": {"p": [0.0, 5.123, 6.966], "t": [0.0, 5.123, -5.25]}}, "pier": {"w": 15.339, "h": 8.633, "pos": [-9.8, 2.556, 9.88], "rotY": 0.0, "cam": {"p": [-9.8, 2.556, 22.646], "t": [-9.8, 2.556, 9.88]}}, "l1": {"w": 22.582, "h": 12.702, "pos": [17.25, 2.02, 0.263], "rotY": -1.5708, "cam": {"p": [-1.544, 2.02, 0.263], "t": [17.25, 2.02, 0.263]}}, "l2": {"w": 9.923, "h": 3.976, "pos": [16.46, 3.451, 0.334], "rotY": -1.5708, "cam": {"p": [8.202, 3.451, 0.334], "t": [16.46, 3.451, 0.334]}}};
-delete ZCARDS.bow;   // 19-11 client: bow = photo booth, no seats -> Teen's picture (with the banquet table) not shown; 3D view only
 const zcard = {};   // Teen's zone pictures at true scale (measured anchors), shown only in that zone's view
 for (const [k, c] of Object.entries(ZCARDS)) {
-  const tx = new THREE.TextureLoader().load(`assets/zcard_${k}.jpg`); tx.colorSpace = THREE.SRGBColorSpace; tx.anisotropy = 8;
+  const tx = new THREE.TextureLoader().load(`assets/zcard_${k}.jpg?v=20261120`); tx.colorSpace = THREE.SRGBColorSpace; tx.anisotropy = 8;
   const m = new THREE.Mesh(new THREE.PlaneGeometry(c.w, c.h), new THREE.MeshBasicMaterial({map: tx, fog: false, toneMapped: false, color: 0xffffff, depthTest: false, depthWrite: false}));   // OPAQUE: replaces the 3D
   m.position.set(...c.pos); m.rotation.y = c.rotY; m.renderOrder = 30; m.visible = false; m.name = 'ZCard_' + k; boat.add(m); zcard[k] = m;
-  const bt = new THREE.TextureLoader().load(`assets/zblur_${k}.jpg`); bt.colorSpace = THREE.SRGBColorSpace;
+  const bt = new THREE.TextureLoader().load(`assets/zblur_${k}.jpg?v=20261120`); bt.colorSpace = THREE.SRGBColorSpace;
   const bs = Math.max(c.w, c.h) * 4;
   const bd = new THREE.Mesh(new THREE.PlaneGeometry(bs, bs), new THREE.MeshBasicMaterial({map: bt, fog: false, toneMapped: false, depthTest: false, depthWrite: false}));
   bd.position.z = -0.05; bd.renderOrder = 29; bd.name = 'ZCardBackdrop_' + k; m.add(bd);   // CARDBACKDROP (blurred copy fills the whole view)
